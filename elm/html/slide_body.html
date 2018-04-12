@@ -320,7 +320,18 @@
     }
     
     function openRegist(){
-			openNewWindows('regist','regist.html')
+			api.openWin ({
+	            name: 'regist',
+	            url: './regist.html',
+	            rect:{
+	                x:0,
+	                y:0,
+	                w:'auto',
+	                h:'auto'
+	            },
+	            bounces: false,
+	            delay:200
+	        });
 		}
     
     function openNewWindows(nm,urls,pms){
