@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>注册</title>
+		<link rel="stylesheet" href="../css/api.css">
+		<style type="text/css">
+			.regist{
+				width: 100%;
+				min-width: 320px;
+				font-weight: 400;
+			}
+			#topbar{
+				height: 48px;
+				line-height: 48px;
+				text-align: center;
+				background-color: #f4f4f4;
+				position: relative;
+				font-size: 18px;
+				color: #333;
+			}
+			.leftbtn{
+				position: absolute;
+				width: 15px;
+				height: 21px;
+				top: 50%;
+				left: 15px;
+				transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+			}
+			
+			.interest{
+            box-sizing: border-box;
+            margin-top: 22px;
+            /*height: 130px;*/
+            padding-left: 5%;
+            background-color: #fff;
+            width: 100%;
+            border-top: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+	        }
+	        .interest-title{
+	            width: 100%;
+	            height: 42px;
+	            font-size:14px;
+	            line-height: 42px; 
+	            position: relative;
+	        }
+	        .interest-title #right-bar{
+	            top: 15px;
+	        }
+	        .interest-list ul{
+	            width: 100%;
+	            overflow: hidden;
+	        }
+	        .interest-list li{
+	            float: left;
+	            height: 30px;
+	            width: 21%;
+	            margin-right: 3%;
+	            border: 1px solid #dbdbdb;
+	            border-radius: 15px;
+	            text-align: center;
+	            line-height: 30px;
+	            font-size: 14px;
+	            color: #ff9900;
+	            margin-bottom: 11px;
+	        }
+	        .tip{
+	            width: 100%;
+	            box-sizing: border-box;
+	            padding-left: 6%;
+	            padding-right: 6%;
+	        }
+	        .tip P{
+	            font-size: 10px;
+	            color: #999999;
+	        }
+	        .tip P:nth-child(1){
+	            margin-top: 15px;
+	        }
+	        .tip P:nth-child(2){
+	            margin-top: 10px;
+	            margin-bottom: 88px;
+	        }
+	        .agreement{
+	            height: 20px;
+	            font-size: 15px;
+	            color: #333;
+	            position: relative
+	        }
+	        .agreement span:nth-child(1){
+	            width: 27px;
+	            height: 20px;
+	            position: absolute;
+	            top: 0px;
+	            left: 14.5%;
+	        }
+	        .agreement span:nth-child(1) img{
+	            width: 100%;
+	        }
+	        .agreement span:nth-child(2){
+	            position: absolute;
+	            top: 0px;
+	            left: 28.5%;
+	        }
+	        .btn{
+	        	position: fixed;
+	        	bottom: 0;
+	        	left: 0;
+	            font-size:17px;
+	            width: 100%;
+	            margin-top: 35px;
+	            height: 52px;
+	            background-color: #31c27c;
+	            text-align: center;
+	            line-height: 52px;
+	            color: #fff
+	        }
+	        .rightNext{
+	    		position: absolute;
+	    		top: 14px;
+	    		right: 15px;
+	    		width: 7px;
+	    		height: 13px;
+	    	}	
+	    	.con{
+	    		width: 100%;
+	    		overflow: hidden;
+	    		background: #fff;
+	    		font-size: 16px;
+	    	}
+	        .con .item{
+	        	position: relative;
+	        	width: 95.56%;
+	        	height: 52px;
+	        	line-height: 52px;
+	        	float: right;
+	        	color: #333;
+	        }
+	        .con .item{
+	        	border-bottom: 1px solid #dbdbdb;
+	        }
+	        .con .item span,.con .item input{        	
+	        	float: left;
+	        }
+	        .con .item input{
+	        	margin-top: 16px;
+	        	margin-left: 8px;
+	        	outline: none;
+	        	color: #999;
+	        }
+	        .con .item div{
+	        	float: right;
+	        	width: 105px;
+	        	height: 35px;
+	        	line-height: 35px;
+	        	margin-top: 10px;
+	        	text-align: center;
+	        	margin-right: 15px;
+	        	background: #ff9900;
+	        	color: #fff;
+	        }
+	        
+		</style>
+	</head>
+	<body>
+		<div class="regist">
+			<div id="topbar">
+				<img src="../image/back.png" alt="" class="leftbtn"/>
+				<div>注册</div>
+			</div>
+			
+			<div style="width: 100%;height: 15px;background: #f2f3f5;"></div>
+				<div class="con">
+					<div class="item">
+						<span>邮箱</span>
+						<input id="phone" type="text" type="number" style="width: 200px;" value="" />
+					</div>
+					<div class="item">
+						<span>密码</span>
+						<input id="phone_pass" style="width: 200px;" type="text" type="password" value="" />
+					</div>
+					<div class="item">
+						<span>昵称</span>
+						<input id="uname" style="width: 200px;" type="text" type="password" value="" />
+					</div>
+				</div>
+			    
+			    <div class="btn" id="loginButton" onclick="regist()">注册</div>
+			</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/template-native.js"></script>
+	<script src="../script/mui.min.js"></script>
+	<script>
+		apiready = function(){
+			var user = api.require('user');
+			
+		}
+		function regist(){
+			var user = api.require('_user');
+			var yx = $api.val("#phone");
+			var pwd = $api.val("#phone_pass");
+			var uname = $api.val("#uname");
+			user.register({
+			    username: uname,
+			    password: pwd,
+			    email: yx
+			}, function( ret, err ) {
+			    if( ret ){
+			        alert( JSON.stringify( ret) );
+			    }else{
+			        alert( JSON.stringify( err) );
+			    }
+			});
+		}
+	</script>
+</html>

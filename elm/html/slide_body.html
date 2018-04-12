@@ -5,8 +5,7 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>Hello APP</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
-    <link rel="stylesheet" type="text/css" href="../css/idangerous.swiper.css">
+    <link rel="stylesheet" href="../css/mui.min.css" />
 
 
     <style>
@@ -89,19 +88,43 @@
     </style>
 </head>
 <body>
-    <div id='slider' class='swipe'>
-        <div class='swipe-wrap'>
-            <div class="swipe-box">
-                <img src="../image/firstcover01.png" alt="">
-            </div>
-            <div class="swipe-box">
-                <img src="../image/firstcover02.png" alt="">
-            </div>
-            <div class="swipe-box">
-                <img src="../image/firstcover03.png" alt="">
-            </div>
-        </div>
-    </div>
+    	<div id="slider" class="mui-slider" >
+			<div class="mui-slider-group mui-slider-loop">
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="../image/banner03.jpg">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="../image/banner01.jpg">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="../image/banner02.jpg">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="../image/banner03.jpg">
+					</a>
+				</div>
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="../image/banner01.jpg">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
 
     <div class="row section2">
         <div class="col">
@@ -129,7 +152,7 @@
     <!-- 如何复用listitem，1.最简单的样式不变，直接复制  2.复制以后修改其中某一行的样式，最外层用div包裹给予新class，即可隔离原有的样式 -->
     <div class="h10"></div>
     <div class="section3">
-        <div class="item style1" tapmode="itemhover" onclick="openNewWin('shopdetail')">
+        <div class="item style1" tapmode="itemhover" onclick="openRegist()">
             <div class="itemlogo userlogo"><img src="../image/shopcover/lihua.jpeg" alt=""></div>
             <div class="itemshelf">
                 <div class="shelfinfo01">【连锁】丽华快餐<span class="ticket">票</span><span class="pei">配</span></div>
@@ -234,8 +257,33 @@
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/swipe.js"></script>
+<script src="../script/mui.min.js"></script>
 <script type="text/javascript">
 
+	mui.init({
+		swipeBack:true //启用右滑关闭功能
+	});
+	var slider = mui("#slider");
+		slider.slider({
+		interval: 3500
+	});
+    apiready = function  () {
+
+			
+			
+        // 暂时关闭下拉刷新
+        // 在ios 7.0.6下面又出现左右移动问题
+        // api.setRefreshHeaderInfo({
+        //     visible: true,
+        //     bgColor: 'rgba(0,0,0,0)',
+        //     textColor: '#666',
+        //     textDown: '下拉刷新',
+        //     textUp: '释放刷新'  
+        // }, function(ret, err){
+        //     loadData();
+        // });
+    }
+    
     function openNewWin (type) {
         api.openWin ({
             name: type,
@@ -265,29 +313,14 @@
             delay:200
         });
     }
-
-    apiready = function  () {
-
-	    var slider =  Swipe( $api.dom('#slider'), {
-	        auto: 3000,
-	        continuous: true,
-	    });
-        // 暂时关闭下拉刷新
-        // 在ios 7.0.6下面又出现左右移动问题
-        // api.setRefreshHeaderInfo({
-        //     visible: true,
-        //     bgColor: 'rgba(0,0,0,0)',
-        //     textColor: '#666',
-        //     textDown: '下拉刷新',
-        //     textUp: '释放刷新'  
-        // }, function(ret, err){
-        //     loadData();
-        // });
-    }
     
     function loadData(){
         api.refreshHeaderLoadDone();
         
     }
+    
+    function openRegist(){
+			openNewWindows('regist','../mine/regist.html')
+		}
 </script>
 </html>
