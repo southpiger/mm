@@ -322,5 +322,14 @@
     function openRegist(){
 			openNewWindows('regist','../mine/regist.html')
 		}
+    
+    function openNewWindows(nm,urls,pms){
+		var parames={
+			name:nm,
+			url:urls,
+			pageParam:pms
+		}
+		api.openWin(parames);
+	}
 </script>
 </html>
