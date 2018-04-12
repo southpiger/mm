@@ -201,10 +201,11 @@
 			
 		}
 		function regist(){
-			var user = api.require('_user');
-			var yx = $api.val("#phone");
-			var pwd = $api.val("#phone_pass");
-			var uname = $api.val("#uname");
+			var user = api.require('user');
+			var yx = $api.val($api.byId('phone'));
+			var pwd = $api.val($api.byId('phone_pass'));
+			var uname = $api.val($api.byId('uname'));
+			alert(yx+pwd+uname);
 			user.register({
 			    username: uname,
 			    password: pwd,
