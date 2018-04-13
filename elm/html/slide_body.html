@@ -287,7 +287,8 @@
     	var model = api.require('model');
 		model.findAll({
 		    class: "seller",
-		    qid: queryId
+		    limit:'4',
+		    skip:'0'
 		}, function( ret, err ) {
 		    if( ret ){
 		         alert( JSON.stringify( ret ) );   
