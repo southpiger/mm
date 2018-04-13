@@ -176,16 +176,18 @@
 			<div style="width: 100%;height: 15px;background: #f2f3f5;"></div>
 				<div class="con">
 					<div class="item">
-						<span>邮箱</span>
-						<input id="phone" type="text" type="number" style="width: 200px;" value="" />
+						<span>手机号</span>
+						<input id="uname" style="width: 200px;" type="text" type="password" value="" />
 					</div>
+					
 					<div class="item">
-						<span>密码</span>
+						<span>密&nbsp;&nbsp;码</span>
 						<input id="phone_pass" style="width: 200px;" type="text" type="password" value="" />
 					</div>
+					
 					<div class="item">
-						<span>昵称</span>
-						<input id="uname" style="width: 200px;" type="text" type="password" value="" />
+						<span>邮&nbsp;&nbsp;箱</span>
+						<input id="phone" type="text" type="number" style="width: 200px;" value="" />
 					</div>
 				</div>
 			    
@@ -204,12 +206,13 @@
 			var user = api.require('user');
 			var yx = $api.val($api.byId('phone'));
 			var pwd = $api.val($api.byId('phone_pass'));
-			var uname = $api.val($api.byId('uname'));
+			var tel = $api.val($api.byId('uname'));
 			alert(yx+pwd+uname);
 			user.register({
-			    username: uname,
+			    username: tel,
 			    password: pwd,
-			    email: yx
+			    email: yx,
+			    mobile:tel
 			}, function( ret, err ) {
 			    if( ret ){
 			        alert( JSON.stringify( ret) );
