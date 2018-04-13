@@ -205,15 +205,13 @@
 		}
 		function regist(){
 			var user = api.require('user');
-			var yx = $api.val($api.byId('phone'));
 			var pwd = $api.val($api.byId('phone_pass'));
 			var tel = $api.val($api.byId('uname'));
-			alert(yx+pwd+uname);
+			alert(yx+pwd);
 			user.register({
 			    username: tel,
 			    password: pwd,
-			    email: yx,
-			    mobile:tel
+			    email: tel
 			}, function( ret, err ) {
 			    if( ret ){
 			        alert( JSON.stringify( ret) );

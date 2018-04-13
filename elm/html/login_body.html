@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="copyright" content="www.apicloud.com" />
 <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-<title>推荐</title>
+<title>登录</title>
 <link rel="stylesheet" type="text/css" href="../css/api.css" />
 <style>
 	html {height: 100%;}
@@ -75,42 +75,35 @@
 	<div class="header" id="topbar">
         <div class="left" tapmode onclick="goback()">
             <img src="../image/abc_ic_ab_back_holo_dark.png" alt="" class="logoleft"><img src="../image/m_drawer_icon_home_selected.png" alt="" class="logo">
-            <span class="title">登陆</span>
+            <span class="title">登录</span>
         </div>
         <!-- <div class="right" tapmode="headerhover" onclick="">注册</div> -->
     </div>
 
 	<div class="divider"></div>
 	<form action="">
-		<div class="item email"><input type="text" placeholder="用户名/邮箱" id="email"></div>
-		<div class="item passwd"><input type="password" placeholder="密码" id="passwd">
+		<div class="item email"><input type="text" placeholder="请输入手机号" id="email"></div>
+		<div class="item passwd"><input type="password" placeholder="请输入密码" id="passwd">
 		</div>
 		
 		<div class="btn" onclick="" tapmode="submit-hover"><span type="submit">登 录</span></div>
 		
 	</form>
-	<div class="loginmore">
-		<span class="phone">其他登陆方式</span>
-	</div>
+	
 	<div class="" id="bottomdivider"></div>
 	<div class="bottom">
 		<div class="thirdcompy">
-			<div class="thirdinfo">第三方登录</div>
+			<div class="thirdinfo">使用第三方登录</div>
 			
 			<div class="share">
-				<div class="shareab">
+				<div class="shareab" onclick="openOutside('wx')">
 					<div class="sharelogo weixin"><img src="../image/weixin_iner_icon.png" alt="" class=""></div>
 					<div class="title">微信</div>
 				</div>
 				
-				<div class="shareab">
-					<div class="sharelogo weibo"><img src="../image/weibo_iner_icon.png" alt="" class=""></div>
-					<div class="title">微博</div>
-				</div>
-
-				<div class="shareab">
-					<div class="sharelogo renren"><img src="../image/renren_iner_icon.png" alt="" class=""></div>
-					<div class="title">人人</div>
+				<div class="shareab" onclick="openOutside('qq')">
+					<div class="sharelogo renren"><img src="../image/QQ.png" alt="" class=""></div>
+					<div class="title" >QQ</div>
 				</div>
 
 			</div>
@@ -129,5 +122,35 @@
 		$api.fixStatusBar( $api.dom('#topbar') );
         
     };
+    
+    function openQQ(){
+    	
+    }
+    function openWX(){
+    	
+    }
+    function openOutside(name){
+    	if(name == 'qq'){
+    		api.openApp({
+			    androidPkg:'com.tencent.mobileqq'
+			}, function(ret, err) {
+			    if (ret) {
+			        alert(JSON.stringify(ret));
+			    } else {
+			        alert(JSON.stringify(err));
+			    }
+			});
+    	}else if(name=='wx'){
+    		api.openApp({
+			    androidPkg:'com.tencent.mm'
+			}, function(ret, err) {
+			    if (ret) {
+			        alert(JSON.stringify(ret));
+			    } else {
+			        alert(JSON.stringify(err));
+			    }
+			});
+    	}
+    }
 </script>
 </html>
