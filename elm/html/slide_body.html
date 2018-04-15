@@ -55,16 +55,16 @@
         /* 第三部分 */
         .section3 .item {background-color: #fff;position: relative;border-bottom: 1px solid #d3d3d3;}
         .section3 .item .itemlogo {position: absolute; top: 10px;}
-        .section3 .itemshelf {margin-left: 70px;display: block;/* 不再显示为table-cell */}
-        .section3 .item .userlogo img {width: 40px;padding: 2px; border: 1px solid #e7e7e7;border-radius: 2px;}
+        .section3 .itemshelf {margin-left: 80px;display: block;/* 不再显示为table-cell */}
+        .section3 .item .userlogo img {width: 60px;height:60px;padding: 2px; border: 1px solid #e7e7e7;border-radius: 2px;}
         .section3 .itemshelf .shelfinfo01 {color: #000;font-size: 16px;line-height: 18px;margin-top: 10px;}
         .section3 .itemshelf .ordering{color: #fff;font-size: 12px;background-color: #5bb06c;padding: 2px 4px;display: inline-block;}
-        .section3 .itemshelf .shelfinfo03 {color: #999;font-size: 12px;margin-right: 10px;border-bottom: 1px dotted #666;padding: 10px 0;}
+        .section3 .itemshelf .shelfinfo03 {color: #999;font-size: 12px;margin-right: 10px;padding-bottom: 10px;}
         .section3 .style2 .itemshelf .shelfinfo03 {color: #999;font-size: 12px;margin-right: 10px;border-bottom: 0;padding: 10px 0;}
         .section3 .itemshelf .staring {color: #999;font-size: 12px;/*background-color: #fff;*/line-height: 14px;margin-top: 5px;}
         .section3 .itemshelf .staring img {height: 12px;}
 
-        .section3 .itemshelf .shelfinfo04 {color: #999;font-size: 12px;padding: 10px 0;}
+        .section3 .itemshelf .shelfinfo04 {color: #999;font-size: 12px;padding: 10px 0;border-top: 1px dotted #666;}
         .section3 .itemshelf .shelfinfo05 {color: #999;font-size: 12px;padding: 10px 0 0 0;}
        
 
@@ -74,7 +74,7 @@
         .section3 .itemshelf .shelfinfo01 .fu {color: #fff;font-size: 12px;background-color: #e5322d;margin-left: 5px;padding: 2px;border-radius: 3px;}
         .section3 .itemshelf .shelfinfo01 .compensate {color: #fff;font-size: 12px;background-color: #2768ba;margin-left: 5px;padding: 2px;border-radius: 3px;}
         .section3 .itemshelf .shelfinfo01 .new {color: #fff;font-size: 12px;background-color: #e5322d;margin-left: 5px;padding: 2px;border-radius: 3px;}
-        .section3 .itemshelf .shelfinfo04 .jian {color: #fff;font-size: 12px;background-color: #cd22e2;padding: 1px;border-radius: 3px;margin-right: 5px;}
+        .section3 .itemshelf .shelfinfo04 .jian {color: #fff;font-size: 12px;background-color: #cd22e2;padding: 3px 4px;border-radius: 3px;margin-right: 5px; line-height: 1em;}
         .section3 .itemshelf .shelfinfo05 .quatity {color: #fff;font-size: 12px;background-color: #dc0414;padding: 1px;border-radius: 3px;margin-right: 5px;}
 
         /* 悬浮样式 */
@@ -89,53 +89,39 @@
 		.goodSeller{
 			font-size: 16px;
 			color: #505050;
-			line-height: 28px;
+			line-height: 36px;
 			width: 100%;
 			padding-left: 18px;
 			-webkit-box-sizing: border-box;
 			box-sizing: border-box;
 			background-color: #f0f0f0;
 		}
+		.star{
+			font-size: 14px;
+			line-height: 32px;
+			color: #f60;
+		}
+		.star em{
+			color: #999;
+			font-size: 12px;
+		}
+		.section3{
+			margin-bottom: 20px;
+		}
+		.mui-slider{
+			width: 100%;
+			height: 160px;
+		}
+		.mui-slider img{
+			width: 100%;
+			height: 100%;
+		}
     </style>
 </head>
 <body>
-    	<div id="slider" class="mui-slider" >
-			<div class="mui-slider-group mui-slider-loop">
-				<div class="mui-slider-item mui-slider-item-duplicate">
-					<a href="#">
-						<img src="../image/banner03.jpg">
-					</a>
-				</div>
-				<!-- 第一张 -->
-				<div class="mui-slider-item">
-					<a href="#">
-						<img src="../image/banner01.jpg">
-					</a>
-				</div>
-				<!-- 第二张 -->
-				<div class="mui-slider-item">
-					<a href="#">
-						<img src="../image/banner02.jpg">
-					</a>
-				</div>
-				<!-- 第三张 -->
-				<div class="mui-slider-item">
-					<a href="#">
-						<img src="../image/banner03.jpg">
-					</a>
-				</div>
-				<div class="mui-slider-item mui-slider-item-duplicate">
-					<a href="#">
-						<img src="../image/banner01.jpg">
-					</a>
-				</div>
-			</div>
-			<div class="mui-slider-indicator">
-				<div class="mui-indicator mui-active"></div>
-				<div class="mui-indicator"></div>
-				<div class="mui-indicator"></div>
-			</div>
-		</div>
+    <div id="slider" class="mui-slider bannerLi">
+				
+	</div>
 
     <div class="row section2">
         <div class="col">
@@ -149,7 +135,7 @@
         </div>
 
         <div class="col">
-            <div class="item shelf2 nearby" tapmode="itemhover" onclick="openDianping()">
+            <div class="item shelf2 nearby" tapmode="itemhover" onclick="openNewWin('dianping')">
                 <div class="itemlogo userlogo"><img src="../image/firstcover05.png" alt=""></div>
                 <div class="itemshelf">
                     <div class="shelfinfo01">大众点评</div>
@@ -158,147 +144,141 @@
             </div>
         </div>
     </div>
-	
-    <!-- 第三部分 -->
-    <!-- 如何复用listitem，1.最简单的样式不变，直接复制  2.复制以后修改其中某一行的样式，最外层用div包裹给予新class，即可隔离原有的样式 -->
+
     <div class="h10"></div>
     <div class="goodSeller">精选商家</div>
-    <div class="section3">
-        <div class="item style1" tapmode="itemhover" onclick="openRegist()">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/lihua.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">【连锁】丽华快餐<span class="ticket">票</span><span class="pei">配</span></div>
-                <div class="shelfinfo02 ordering">接受预定中</div>
-                <div class="shelfinfo03">月售37307单 / 0元起送 / 34分钟</div>
-                <div class="shelfinfo04"><span class="jian">减</span>满20元减13元</div>
-
-            </div>
-        </div>
-        <div class="item style2" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/hongzhuangyuan.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">【连锁】宏状元<span class="ticket">票</span><span class="pei">配</span></div>
-                <div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">（2117）</div>
-                <div class="shelfinfo03">月售754单 / 35元起送 / 45分钟</div>
-                
-            </div>
-        </div>
-        <div class="item style1" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/jiujiuya.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">【连锁】久久丫<span class="fu">付</span><span class="pei">配</span></div>
-                <div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">（604）</div>
-                <div class="shelfinfo03">月售753单 / 30元起送 / 45分钟</div>
-                <div class="shelfinfo04"><span class="jian">减</span>满20元减10元，在线支付再减3元</div>
-
-            </div>
-        </div>
-        <div class="item style2" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/mikamika.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">【连锁】米卡米卡蛋糕<span class="ticket">票</span><span class="pei">配</span></div>
-                <div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">（2）</div>
-                <div class="shelfinfo03">月售13单 / 99元起送</div>
-                
-            </div>
-        </div>
-        <div class="item style1" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/aixianfeng.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">【连锁】爱鲜蜂<span class="fu">付</span><span class="new">新</span><span class="pei">配</span></div>
-                <div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">（115）</div>
-                <div class="shelfinfo03">月售243单 / 50元起送 / 45分钟</div>
-                <div class="shelfinfo04"><span class="jian">减</span>满20元减13元</div>
-
-            </div>
-        </div>
-        <div class="item style2" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/jiajiasong.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">【连锁】家家送火锅<span class="ticket">票</span><span class="compensate">赔</span></div>
-                <div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">（2）</div>
-                <div class="shelfinfo03">月售19单 / 148元起送</div>
-                
-            </div>
-        </div>
-        <div class="item style1" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/gudebisa.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">【连锁】古特比萨<span class="ticket">票</span></div>
-                <div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">（37）</div>
-                <div class="shelfinfo03">月售143单 / 60元起送 / 45分钟</div>
-                <div class="shelfinfo05"><span class="quatity">质</span>餐厅认证</div>
-                <div class="shelfinfo04"><span class="jian">减</span>满20元减13元</div>
-                
-            </div>
-        </div>
-        <div class="item style2" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/pindou.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">拼豆夜宵<span class="ticket">票</span></div>
-                <div class="shelfinfo02 ordering">接受预定中</div>
-                <div class="shelfinfo03">月售597单 / 100元起送 / 41分钟</div>
-            </div>
-        </div>
-        <div class="item style2" tapmode="itemhover" onclick="openNewWin('shopdetail')">
-            <div class="itemlogo userlogo"><img src="../image/shopcover/mamimami.jpeg" alt=""></div>
-            <div class="itemshelf">
-                <div class="shelfinfo01">麻咪麻咪香辣火锅<span class="fu">付</span></div>
-                <div class="shelfinfo02 staring"><img src="../image/star_45.png" alt="">（924）</div>
-                <div class="shelfinfo03">月售786单 / 50元起送 / 45分钟</div>
-            </div>
-        </div>
-       
+    <div class="section3" id="sellerList">
+        
     </div>
-
 </body>
-<script type="text/javascript" src="../script/api.js"></script>
-<script type="text/javascript" src="../script/swipe.js"></script>
+<script type="text/html" id="banner">
+	<div class="mui-slider-group mui-slider-loop" >
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="<%=msg[2].url%>">
+				<img src="<%=msg[2].src%>">
+			</a>
+		</div>
+		<%for(var i=0;i<msg.length;i++){%>
+			<div class="mui-slider-item">
+				<a href="<%=msg[i].url%>">
+					<img src="<%=msg[i].src%>">
+				</a>
+			</div>
+		<%}%>
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="<%=msg[0].url%>">
+				<img src="<%=msg[0].src%>">
+			</a>
+		</div>
+	</div>
+	<div class="mui-slider-indicator">
+		<div class="mui-indicator mui-active"></div>
+		<div class="mui-indicator"></div>
+		<div class="mui-indicator"></div>
+	</div>
+</script>
+
+<script type="text/html" id="seller_mb">
+	<%for(var i=0;i<msg.length;i++){%>
+	    <div class="item style1" tapmode="itemhover" >
+            <div class="itemlogo userlogo"><img src="<%=msg[i].s_logo%>" alt=""></div>
+            <div class="itemshelf">
+                <div class="shelfinfo01"><%=msg[i].s_name%></div>
+                <div class="star">
+                	<%if(msg[i].s_star==1){%>
+                		<span>★</span>
+                	<%}else if(msg[i].s_star==2){%>
+                		<span>★★</span>
+                	<%}else if(msg[i].s_star==3){%>
+                		<span>★★★</span>
+                	<%}else if(msg[i].s_star==4){%>
+                		<span>★★★★</span>
+                	<%}else if(msg[i].s_star==5){%>
+                		<span>★★★★★★</span>
+                	<%}%>
+                	<em>( <%=msg[i].s_starNum%> )</em>
+                </div>
+                <div class="shelfinfo03">月售<%=msg[i].s_sales%>单&nbsp;/&nbsp;<%=msg[i].offer_price%>元起送 &nbsp;/&nbsp;<%=msg[i].Dtime%>分钟</div>
+                <%if(msg[i].discount == '' || msg[i].discount == 'null' || msg[i].discount == undefined){%>
+                	
+                <%}else{%>
+                	<div class="shelfinfo04"><span class="jian">减</span><%=msg[i].discount%></div>
+                <%}%>
+            </div>
+        </div>
+    <%}%>
+</script>
+
+<script src="../script/api.js"></script>
 <script src="../script/mui.min.js"></script>
+<script src="../script/APICloud-rest-SHA1.js"></script>
+<script src="../script/template-native.js"></script>
 <script type="text/javascript">
 
-	mui.init({
-		swipeBack:true //启用右滑关闭功能
-	});
-	var slider = mui("#slider");
-		slider.slider({
-		interval: 3500
-	});
-	
     apiready = function  () {
-    	var model = api.require('model');
-		getlist();
-			
-			
-        // 暂时关闭下拉刷新
-        // 在ios 7.0.6下面又出现左右移动问题
-        // api.setRefreshHeaderInfo({
-        //     visible: true,
-        //     bgColor: 'rgba(0,0,0,0)',
-        //     textColor: '#666',
-        //     textDown: '下拉刷新',
-        //     textUp: '释放刷新'  
-        // }, function(ret, err){
-        //     loadData();
-        // });
+    	getBanner()
+		getSeller();
     }
     
-    function getlist(){
-    	var model = api.require('model');
-		model.findAll({
-		    class: "seller",
-		    limit:'4',
-		    skip:'0'
-		}, function( ret, err ) {
-		    if( ret ){
-		         alert( JSON.stringify( ret ) );   
-		    }else{
-		         alert( JSON.stringify( err ) );
+    function getBanner(){
+    	var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
+		var Banner= client.Factory("banner");
+		Banner.query({
+		    "filter": {
+			    "where": {},
+			    "order": "createdAt DESC",
+			    "skip": 0,
+			    "limit": 3
 		    }
-		});
+		},function(ret,err){
+			if(ret){
+				var data = {msg:ret};
+				var html = template('banner',data);
+				document.querySelector(".bannerLi").innerHTML = html;
+				mui.init({
+					swipeBack:true
+				});
+				var slider = mui("#slider");
+					slider.slider({
+					interval: 3500
+				});
+		    }else{
+		    	api.toast({
+				    msg: '轮播图获取失败，请稍后重试',
+				    duration: 2000,
+				    location: 'top'
+				});
+		    }
+		})
     }
     
     
+    function getSeller(){
+    	var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
+		var Seller= client.Factory("seller");
+		Seller.query({
+		    "filter": {
+		    	"where": {"s_star": "5"},
+		    	"order": "createdAt DESC",
+		    	"skip": 0,
+		    	"limit": 5
+		    }
+		},function(ret,err){
+			if(ret){
+				var data = {msg:ret};
+				var html = template('seller_mb',data);
+				document.querySelector("#sellerList").innerHTML = html;
+				
+		    }else{
+		    	api.toast({
+				    msg: '信息获取失败，请稍后重试',
+				    duration: 2000,
+				    location: 'bottom'
+				});
+		    }
+		})
+    }
+
     function openNewWin (type) {
         api.openWin ({
             name: type,
@@ -313,25 +293,9 @@
             delay:200
         });
     }
-
-    function openDianping () {
-        api.openWin ({
-            name: 'dianping',
-            url: './dianping.html',
-            rect:{
-                x:0,
-                y:0,
-                w:'auto',
-                h:'auto'
-            },
-            bounces: false,
-            delay:200
-        });
-    }
     
     function loadData(){
         api.refreshHeaderLoadDone();
-        
     }
     
     function openRegist(){
@@ -348,14 +312,5 @@
 	            delay:200
 	        });
 		}
-    
-    function openNewWindows(nm,urls,pms){
-		var parames={
-			name:nm,
-			url:urls,
-			pageParam:pms
-		}
-		api.openWin(parames);
-	}
 </script>
 </html>

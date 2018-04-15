@@ -1,7 +1,7 @@
 <widget id="A6961757803844"  version="0.0.1">
-	<name>ele</name>
+	<name>天天订餐</name>
 	<description>
-	仿饿了么
+		毕设
 	</description>
 	<author email="" href="">666</author>
 	<content src="index.html" />
