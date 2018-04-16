@@ -63,38 +63,48 @@ function goback () {
     api.closeWin({name:'searchlocation'});
 }
 
-function getGeo () {
-    var baiduLocation = api.require('baiduLocation');
-
-    baiduLocation.startLocation({
-        accuracy: '100m',
-        filter:1,
-        autoStop: true
-    },function(ret, err){
-        var sta = ret.status;
-        var lat = ret.latitude;
-        var lon = ret.longitude;
-        var t = ret.timestamp;
-        if(sta){
-            var str = '经度：'+ lon +'\n';
-            str += '纬度：'+ lat +'\n';
-            
-            alert(str);
-        } else{
-            
-        }
-    });
-}
-var input = {};
-function emptyinput() {
-    if ( input.empty === undefined) {
-        input = document.getElementsByClassName('emptyinput')[0];
-        input.empty = 'false';
-    }
-    input.value = '';
-}
-apiready = function(){
-	$api.fixStatusBar( $api.dom('#topbar') );
-}
+	function getGeo () {
+		
+		var bMap = api.require('bMap');
+		bMap.getLocation({
+		    accuracy: '100m',
+		    autoStop: true,
+		    filter: 1
+		}, function(ret, err) {
+		    if (ret.status) {
+		        alert(JSON.stringify(ret));
+		        var lon=ret.lon;	//经度
+		        var lat=ret.lat;	//纬度
+		        
+		        star(lon,lat);
+		    } else {
+		        alert(err.code);
+		    }
+		})
+	}
+	
+	function star(lon,lat){
+		var map = api.require('bMap');
+		map.getNameFromCoords({
+		    lon: lon,
+		    lat: lat
+		}, function(ret, err) {
+		    if (ret.status) {
+		        alert(JSON.stringify(ret));
+		    }
+		});
+	}
+	
+	var input = {};
+	function emptyinput() {
+	    if ( input.empty === undefined) {
+	        input = document.getElementsByClassName('emptyinput')[0];
+	        input.empty = 'false';
+	    }
+	    input.value = '';
+	}
+	apiready = function(){
+		$api.fixStatusBar( $api.dom('#topbar') );
+	}
 </script>
 </html>
