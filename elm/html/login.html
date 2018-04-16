@@ -73,19 +73,23 @@
 <script src="../script/APICloud-rest-SHA1.js"></script>
 <script type="text/javascript">
 	
-	apiready = function(){
+	window.onload = function(){
 		var myId = $api.getStorage('id');
 		if(myId){
 			$api.fixStatusBar($api.dom('#topbar'));
-			getInfo(myId)
+			getInfo();
 		}else{
 			openNewWin ('login_body');
 		}
+	}
+	
+	apiready = function(){
+		
 		
 	}
 	
 	
-	function getInfo(id){
+	function getInfo(){
     	
     	
     	/*var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
@@ -100,7 +104,7 @@
 
 		model.findById({
 		    class: "user",
-		    id: id
+		    id: '5ad471bac4d874e95ae0f143'
 		}, function(ret, err){
 		    alert("ret: " + JSON.stringify(ret) + "\nerr: " + JSON.stringify(err));
 		});
