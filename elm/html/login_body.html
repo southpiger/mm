@@ -148,8 +148,8 @@
 		    	alert(JSON.stringify(ret))
 		    	var id = ret.userId;
 		    	$api.setStorage('id',id);
+		    	openUserCenter();
 		    	
-		    	getInfo();
 		    }else{
 		    	api.toast({
 				    msg: '登录失败,账号或密码错误',
@@ -162,17 +162,21 @@
 		})
     }
     
-    function getInfo(){
-    	var myId = $api.getStorage('id');
-    	
-    	var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
-		var User= client.Factory("user");
-		User.get({
-		    "_id":myId
-		},function(data){
-		    alert(JSON.stringify(data))
-		})
-    }
+    function openUserCenter(){
+	    api.openWin ({
+	        name: 'usercenter',
+	        url: './login.html',
+	        rect:{
+	            x:0,
+	            y:0,
+	            w:'auto',
+	            h:'auto'
+	        },
+	        bounces: false,
+	        delay:200
+	    });
+	}
+    
     
     function openRegist(){
 	    api.openWin ({
