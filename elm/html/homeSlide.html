@@ -88,7 +88,7 @@
             <img src="../image/icon_drawer_burger.png" alt="" class="logoleft">
         </div>
         <div class="center" tapmode="headerhover" onclick="openNewWin('searchlocation')">
-            <span>花园路</span>
+            <span id="st">花园路</span>
             <img src="../image/pager_tab_menu_indicator.png" alt="">
         </div>
         <div class="right" tapmode="headerhover" onclick="openNewWin('search')"><img src="../image/icon_search.png" alt=""></div>
@@ -102,10 +102,18 @@
 <script type="text/javascript">
 
     apiready = function(){
-
+		var parms = api.pageParam;
+		var st = parms.st;
+		if(st){
+			$api.html($api.byId('st'),st);
+		}
+		
 		$api.fixStatusBar( $api.dom('#topbar') );
         var headerPos = $api.offset( $api.dom('#topbar') );
-
+		
+		
+		
+		
         api.openFrame ({
             name: 'slide_body',
             url: './slide_body.html',

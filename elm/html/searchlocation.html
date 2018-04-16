@@ -38,6 +38,13 @@
         /* 悬浮样式 */
         .itemhover {background-color: #EDEDED;}
         .headerhover {background-color: rgba(54, 168, 220, 0.6) !important;}
+        #local{
+        	color: #666;
+        	font-size: 16px;
+        	padding-left: 15px;
+        	line-height: 36px;
+        	margin-top: 36px;
+        }
     </style>
 </head>
 <body>
@@ -54,7 +61,7 @@
         点击定位当前位置
         <img src="../image/m_switchaddress_icon_locate.png" alt="">
     </div>
-    
+    <p id="local" ac='' onclick="again()"></p>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
@@ -91,7 +98,29 @@ function goback () {
 		}, function(ret, err) {
 		    if (ret.status) {
 		        alert(JSON.stringify(ret));
+		        $api.setStorage('local',ret.address);
+		        $api.html($api.byId("local"),ret.address);
+		        $api.attr($api.byId('local'),'ac',ret.streetName);
 		    }
+		});
+	}
+	
+	function again(){
+		var st = $api.attr($api.byId('local'),'ac');
+		api.openWin({
+		    name: 'homeSlide',
+		    url: './homeSlide.html',
+		    pageParam: {
+		        street: st
+		    },
+		    rect:{
+	            x:0,
+	            y:0,
+	            w:'auto',
+	            h:'auto'
+	        },
+		    bounces: false,
+		    delay:200
 		});
 	}
 	
