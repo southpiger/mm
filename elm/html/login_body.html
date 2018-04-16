@@ -31,7 +31,7 @@
 	.item {background-color: #fff; border-bottom: 1px solid #e0e0e0;position: relative;padding-left: 10px;margin: 0 10px;}
 	/*.email, .passwd, .btn {margin:3px 10px;}*/
 	.btn {margin:3px 10px;}
-	.btn {background: #4DC060;height: 40px; text-align: center; line-height: 40px; font-size: 20px;margin-top: 20px;border-radius: 5px;}
+	.btn {background: #3993cf;height: 40px; text-align: center; line-height: 40px; font-size: 20px;margin-top: 20px;border-radius: 5px;}
 	.btn span {color: #fff;}
 	.email img {width: 25px; margin-top: 15px; margin-left: 10px; margin-right: 9px;}
 	.passwd img {height: 25px;margin-top: 10px; margin-left: 10px;margin-right: 10px;}
@@ -95,11 +95,11 @@
 
 	<div class="divider"></div>
 	<form action="">
-		<div class="item email"><input type="text" placeholder="请输入账号" id="email"></div>
-		<div class="item passwd"><input type="password" placeholder="请输入密码" id="passwd">
+		<div class="item email"><input type="text" placeholder="请输入账号" id="uname"></div>
+		<div class="item passwd"><input type="password" placeholder="请输入密码" id="pwd">
 		</div>
 		
-		<div class="btn" onclick="" tapmode="submit-hover"><span type="submit">登 录</span></div>
+		<div class="btn" onclick="login()" tapmode="submit-hover" ><span type="submit">登 录</span></div>
 		
 	</form>
 	<p class="goregist" onclick="openRegist()"><a href="javascript:;">没有账号？点击前往<em>注册</em></a></p>
@@ -126,16 +126,53 @@
 	</div>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
+<script src="../script/APICloud-rest-SHA1.js"></script>
 <script type="text/javascript">
-
-	function goback () {
-		api.closeWin({name:'login_body'})
-	}
+	
 	apiready = function() {
 		$api.fixStatusBar( $api.dom('#topbar') );
         
     };
+   
+    function login(){
+    	var pwd = $api.val($api.byId("pwd"));
+		var uname = $api.val($api.byId("uname"));
+		
+		var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
+		var User= client.Factory("user");
+		User.login({
+		    "username":uname,
+		    "password":pwd
+		},function(ret,err){
+		    if(ret.userId){
+		    	alert(JSON.stringify(ret))
+		    	var id = ret.userId;
+		    	$api.setStorage('id',id);
+		    	
+		    	getInfo();
+		    }else{
+		    	api.toast({
+				    msg: '登录失败,账号或密码错误',
+				    duration: 3000,
+				    location: 'middle'
+				});
+				$api.val($api.byId("pwd"),'');
+				$api.val($api.byId("uname"),'');
+		    }
+		})
+    }
     
+    function getInfo(){
+    	var myId = $api.getStorage('id');
+    	
+    	var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
+		var User= client.Factory("user");
+		User.get({
+		    "_id":myId
+		},function(data){
+		    alert(JSON.stringify(data))
+		})
+    }
     
     function openRegist(){
 	    api.openWin ({
@@ -175,5 +212,9 @@
 			});
     	}
     }
+    
+    function goback () {
+		api.closeWin({name:'login_body'})
+	}
 </script>
 </html>
