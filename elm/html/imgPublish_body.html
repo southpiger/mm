@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>动态</title>
+		<link rel="stylesheet" href="../css/api.css" />
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				min-width: 320px;
+				width: 100%;
+			}
+			#main{
+				width: 100%;
+				box-sizing: border-box;
+				padding-left:15px;
+				padding-right:15px;
+			}
+			
+			.inputbox{
+				width: 100%;
+				box-sizing: border-box;
+				
+			}
+			.inputbox input{
+				width: 100%;
+				line-height: 40px;
+				font-size: 16px;
+				border-bottom: 1px dashed #eee;
+			}
+			
+			.imglist{
+				overflow: hidden;
+			}
+			.imglist li{
+				width: 94px;
+				height: 94px;
+				background-repeat: no-repeat;
+				background-size: 100%;
+				float: left;
+				margin-left:6px;
+				margin-right: 6px;
+			}
+			.add{
+				width: 94px;
+				height: 94px;
+				background: url(../image/add_img.png) no-repeat;
+				background-size: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+	    	<div class="inputbox">
+	    		<input type="text" name="" id="" value="" placeholder="请输入标题"/>
+	    	</div>
+	    	<div class="addimg">
+	    		<ul class="imglist">
+	    			<li style="background-image: url(../image/pic.jpg);"></li>
+	    			<li style="background-image: url(../image/pic.jpg);"></li>
+	    			<li style="background-image: url(../image/pic.jpg);"></li>
+	    			<li style="background-image: url(../image/pic.jpg);"></li>
+	    			<li class="add"></li>
+	    		</ul>
+	    	</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script>
+		apiready=function(){
+			
+		}
+	</script>
+</html>

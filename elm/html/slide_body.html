@@ -153,20 +153,20 @@
 </body>
 <script type="text/html" id="banner">
 	<div class="mui-slider-group mui-slider-loop" >
-		<div class="mui-slider-item mui-slider-item-duplicate">
-			<a href="<%=msg[2].url%>">
+		<div class="mui-slider-item mui-slider-item-duplicate" onclick="openBrower('<%=msg[2].url%>')">
+			<a href="javascript:;">
 				<img src="<%=msg[2].src%>">
 			</a>
 		</div>
 		<%for(var i=0;i<msg.length;i++){%>
-			<div class="mui-slider-item">
-				<a href="<%=msg[i].url%>">
+			<div class="mui-slider-item" onclick="openBrower('<%=msg[i].url%>')">
+				<a href="javascript:;">
 					<img src="<%=msg[i].src%>">
 				</a>
 			</div>
 		<%}%>
-		<div class="mui-slider-item mui-slider-item-duplicate">
-			<a href="<%=msg[0].url%>">
+		<div class="mui-slider-item mui-slider-item-duplicate" onclick="openBrower('<%=msg[0].url%>')">
+			<a href="javascript:;">
 				<img src="<%=msg[0].src%>">
 			</a>
 		</div>
@@ -297,6 +297,13 @@
     function loadData(){
         api.refreshHeaderLoadDone();
     }
+    
+    function openBrower(urls){
+		var browser = api.require('webBrowser');
+		browser.open({
+		    url: urls
+		});
+	}
     
     function openRegist(){
 			api.openWin ({
