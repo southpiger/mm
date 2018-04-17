@@ -111,7 +111,7 @@
 
 <script type="text/html" id="seller_mb">
 	<%for(var i=0;i<msg.length;i++){%>
-	    <div class="item style1" tapmode="itemhover" >
+	    <div class="item style1" tapmode="itemhover" onclick="openNewWin('shopdetail')">
             <div class="itemlogo userlogo"><img src="<%=msg[i].s_logo%>" alt=""></div>
             <div class="itemshelf">
                 <div class="shelfinfo01"><%=msg[i].s_name%></div>

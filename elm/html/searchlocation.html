@@ -10,7 +10,7 @@
 
 
     <style>
-        html,body{background-color: #eee;}
+        html,body{background-color: #f8f8f8;}
         .h10 {height: 10px;}
 
         /* 头部导航样式 */
@@ -42,9 +42,12 @@
         	color: #666;
         	font-size: 16px;
         	padding-left: 15px;
-        	line-height: 36px;
-        	margin-top: 36px;
+        	line-height: 48px;
+        	border-bottom: 1px dashed #d0d0d0;
+        	box-sizing: border-box;
+        	display: none;
         }
+        
     </style>
 </head>
 <body>
@@ -61,7 +64,10 @@
         点击定位当前位置
         <img src="../image/m_switchaddress_icon_locate.png" alt="">
     </div>
-    <p id="local" ac='' onclick="again()"></p>
+    <span style="display：block;margin-top: 36px;">当前位置</span>
+    <p id="local" onclick="again()">
+    	
+    </p>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
@@ -79,7 +85,7 @@ function goback () {
 		    filter: 1
 		}, function(ret, err) {
 		    if (ret.status) {
-		        alert(JSON.stringify(ret));
+//		        alert(JSON.stringify(ret));
 		        var lon=ret.lon;	//经度
 		        var lat=ret.lat;	//纬度
 		        
@@ -97,22 +103,24 @@ function goback () {
 		    lat: lat
 		}, function(ret, err) {
 		    if (ret.status) {
-		        alert(JSON.stringify(ret));
+//		        alert(JSON.stringify(ret));
+		        $api.css($api.byId('local'),'display:block');
 		        $api.setStorage('local',ret.address);
+		        $api.setStorage('street',ret.streetName);
 		        $api.html($api.byId("local"),ret.address);
-		        $api.attr($api.byId('local'),'ac',ret.streetName);
+//		        $api.attr($api.byId('local'),'ac',ret.streetName);
 		    }
 		});
 	}
 	
 	function again(){
-		var st = $api.attr($api.byId('local'),'ac');
+//		var st = $api.attr($api.byId('local'),'ac');
 		api.openWin({
 		    name: 'homeSlide',
 		    url: './homeSlide.html',
-		    pageParam: {
+		    /*pageParam: {
 		        street: st
-		    },
+		    },*/
 		    rect:{
 	            x:0,
 	            y:0,

@@ -87,8 +87,8 @@
         <div class="left" tapmode onclick="openSlide()">
             <img src="../image/icon_drawer_burger.png" alt="" class="logoleft">
         </div>
-        <div class="center" tapmode="headerhover" onclick="openNewWin('searchlocation')">
-            <span id="st">花园路</span>
+        <div class="center" onclick="openNewWin('searchlocation')">
+            <span id="st">劳动路</span>
             <img src="../image/pager_tab_menu_indicator.png" alt="">
         </div>
         <div class="right" tapmode="headerhover" onclick="openNewWin('search')"><img src="../image/icon_search.png" alt=""></div>
@@ -102,8 +102,9 @@
 <script type="text/javascript">
 
     apiready = function(){
-		var parms = api.pageParam;
-		var st = parms.st;
+//		var parms = api.pageParam;
+//		var st = parms.st;
+		var st = $api.getStorage('street');
 		if(st){
 			$api.html($api.byId('st'),st);
 		}
@@ -131,7 +132,7 @@
             name: 'keyback'
         }, function(ret, err){
             api.closeWidget({
-                id: 'A6961757803844',
+                id: 'A6078818080214',
                 retData: {name:'closeWidget'}
             });
             closeApp();
@@ -176,7 +177,7 @@
 	    function closeApp(){
 		    api.closeWidget({
 		        retData: {name: 'closeWidget'},
-		        silent: false,		/*false会弹出提示框点击确定退出应用  ，true时直接退出应用，没有提示框*/
+		        silent: false,
 		        animation: {
 		            type: 'none',
 		            subType: 'from_bottom',
