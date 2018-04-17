@@ -87,16 +87,16 @@ function goback () {
 		        var lon=ret.lon;	//经度
 		        var lat=ret.lat;	//纬度
 		        
-		        setTimeout("star("+lon+','+lat+")",500);
+		        star(lon,lat);
 		    } else {
-		        alert(err.msg);
+		        alert('定位失败，请稍后重试');
 		    }
 		})
 	}
 	
 	function star(lon,lat){
-		var map1 = api.require('bMap');
-		map1.getNameFromCoords({
+		var map = api.require('bMap');
+		map.getNameFromCoords({
 		    lon: lon,
 		    lat: lat
 		}, function(ret, err) {
