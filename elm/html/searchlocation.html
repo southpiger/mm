@@ -101,14 +101,14 @@ function goback () {
 		    lon: lon,
 		    lat: lat
 		}, function(ret, err) {
-		   
-//		        alert(JSON.stringify(ret));
+		    if (ret.status) {
+		        alert(JSON.stringify(ret));
 		        $api.css($api.byId('local'),'display:block');
 		        $api.setStorage('local',ret.address);
 		        $api.setStorage('street',ret.streetName);
 		        $api.html($api.byId("local"),ret.address);
 //		        $api.attr($api.byId('local'),'ac',ret.streetName);
-		    
+		    }
 		});
 	}
 	
