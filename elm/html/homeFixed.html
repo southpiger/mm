@@ -80,6 +80,38 @@
 		api.closeSlidPane();
 	}
 	
+	function openLog(){
+		var uname = $api.getStorage('uname');
+		if(uname){
+			api.openWin ({
+				name: 'login',
+				url: './login.html',
+				rect:{
+					x:0,
+					y:0,
+					w:'auto',
+					h:'auto'
+				},
+				bounces: false,
+				delay:200
+			});
+		}else{
+			api.openWin ({
+				name: 'login_body',
+				url: './login_body.html',
+				rect:{
+					x:0,
+					y:0,
+					w:'auto',
+					h:'auto'
+				},
+				bounces: false,
+				delay:200
+			});
+		}
+	}
+	
+	
     function openNewWin(type){
 		api.openWin ({
 			name: type,
@@ -91,10 +123,7 @@
 				h:'auto'
 			},
 			bounces: false,
-			delay:200,
-			animation: {
-				type: 'movein'
-			}
+			delay:200
 		});
     }
 	
