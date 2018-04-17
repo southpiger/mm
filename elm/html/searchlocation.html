@@ -77,7 +77,6 @@ function goback () {
 }
 
 	function getGeo () {
-		
 		var bMap = api.require('bMap');
 		bMap.getLocation({
 		    accuracy: '100m',
@@ -85,7 +84,6 @@ function goback () {
 		    filter: 1
 		}, function(ret, err) {
 		    if (ret.status) {
-//		        alert(JSON.stringify(ret));
 		        var lon=ret.lon;	//经度
 		        var lat=ret.lat;	//纬度
 		        
@@ -97,8 +95,8 @@ function goback () {
 	}
 	
 	function star(lon,lat){
-		var map = api.require('bMap');
-		map.getNameFromCoords({
+		var map1 = api.require('bMap');
+		map1.getNameFromCoords({
 		    lon: lon,
 		    lat: lat
 		}, function(ret, err) {
