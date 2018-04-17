@@ -89,7 +89,7 @@ function goback () {
 		        var lat=ret.lat;	//纬度
 		        
 //		        setTimeout("star("+bMap+","+lon+","+lat+")",2000)
-		        setTimeout(star(bMap,lon,lat),2000);
+		        setTimeout(star(lon,lat),2000);
 		        
 		        /*bMap.getNameFromCoords({
 				    lon: lon,
@@ -110,10 +110,10 @@ function goback () {
 		})
 	}
 	
-	function star(a,lon,lat){
+	function star(lon,lat){
 		alert(lon+','+lat);
-//		var map = api.require('bMap');
-		a.getNameFromCoords({
+		var amap = api.require('bMap');
+		amap.getNameFromCoords({
 		    lon: lon,
 		    lat: lat
 		}, function(ret, err) {
