@@ -88,9 +88,10 @@ function goback () {
 		        var lon=ret.lon;	//经度
 		        var lat=ret.lat;	//纬度
 		        
-//		        setTimeout("star("+lon+","+lat+")",5000);
+//		        setTimeout("star("+bMap+","+lon+","+lat+")",2000)
+		        setTimeout(star(bMap,lon,lat),2000);
 		        
-		        bMap.getNameFromCoords({
+		        /*bMap.getNameFromCoords({
 				    lon: lon,
 				    lat: lat
 				}, function(ret, err) {
@@ -101,19 +102,18 @@ function goback () {
 				        $api.setStorage('local',ret.address);
 				        $api.setStorage('street',ret.streetName);
 				        $api.html($api.byId("local"),ret.address);
-		//		        $api.attr($api.byId('local'),'ac',ret.streetName);
 				    }
-				});
+				});*/
 		    } else {
 		        alert('定位失败，请稍后重试');
 		    }
 		})
 	}
 	
-	function star(lon,lat){
+	function star(a,lon,lat){
 		alert(lon+','+lat);
-		var map = api.require('bMap');
-		map.getNameFromCoords({
+//		var map = api.require('bMap');
+		a.getNameFromCoords({
 		    lon: lon,
 		    lat: lat
 		}, function(ret, err) {
