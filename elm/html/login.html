@@ -90,7 +90,11 @@
 	
 	function logout(){
 		$api.clearStorage ();
-		api.openWin ({
+		openhome();
+	}
+	
+	function openhome(){
+	    api.openWin ({
 	        name: 'homeSlide',
 	        url: './homeSlide.html',
 	        rect:{
