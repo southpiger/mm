@@ -1,33 +1,61 @@
 <widget id="A6078818080214"  version="0.0.1">
-	<name>天天订餐/name>
+	<name>天天订餐</name>
+
     <description>
-    	stb
+
+        Example For APICloud.
+
     </description>
-    <author email="developer@apicloud.com" href="//www.apicloud.com">
-        stb
+
+    <author email="developer@apicloud.com" href="http://www.apicloud.com">
+
+        Developer
+
     </author>
-	<content src="index.html" />
-	<preference name="pageBounce" value="false"/>
+
+    <content src="index.html" />
+
+    <access origin="*" />
+
+    <preference name="pageBounce" value="false"/>
+
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
+
 	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
+
 	<preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>
+
 	<preference name="hScrollBarEnabled" value="true"/>
+
 	<preference name="vScrollBarEnabled" value="true"/>
+
 	<preference name="autoLaunch" value="true"/>
+
 	<preference name="fullScreen" value="false"/>
-	<preference name="autoUpdate" value="true"/>
-	<preference name="smartUpdate" value="false"/>
-	<preference name="debug" value="false"/>
+
+	<preference name="autoUpdate" value="true" />
+
+	<preference name="smartUpdate" value="false" />
+
+	<preference name="debug" value="true"/>
+
 	<preference name="statusBarAppearance" value="true"/>
-	<permission name="readPhoneState"/>
-	<permission name="camera"/>
-	<permission name="record"/>
-	<permission name="location"/>
-	<permission name="fileSystem"/>
-	<permission name="internet"/>
-	<permission name="bootCompleted"/>
-	<permission name="hardware"/>
-	<access origin="*"/>
+
+	<permission name="readPhoneState" />
+
+	<permission name="camera" />
+
+	<permission name="record" />
+
+	<permission name="location" />
+
+	<permission name="fileSystem" />
+
+	<permission name="internet" />
+
+	<permission name="bootCompleted" />
+
+	<permission name="hardware" />
 	<feature name="bMap">
 	    <param name="android_api_key" value="9rvfLLhjqC3s1A4FSaR9jUgxSfPBZTdp" />
 	    <param name="ios_api_key" value="AaGhj2zCu5CahymO8LPTDUXviXoNQfbs" />
