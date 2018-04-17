@@ -55,17 +55,11 @@
 
     <div class="content">
         <img src="../image/uer_center_header_bg.png" alt="" class="loginbg">
-        <div class="loginbox" id="loginbox1">
-            <div class="avatar"><img src="../image/user_center_default_avatar.png" alt=""></div>
-            <div class="shelf" tapmode="" onclick="openNewWin('login_body')">
-                <div class="shelf01">您还未登录</div>
-                <div class="shelf02">点击登录开始点餐吧</div>
-            </div>
-        </div>
-        <div class="loginbox" id="loginbox2" style="display: none;">
+        
+        <div class="loginbox" id="loginbox2">
             <div class="avatar"><img src="../image/user_center_default_avatar.png" alt=""></div>
             <div class="shelf" tapmode="" >
-                <div class="shelf01" id="uname">用户名</div>
+                <div class="shelf01" id="uname"></div>
                 <div class="shelf02">欢迎你</div>
             </div>
         </div>
@@ -84,8 +78,6 @@
 		$api.fixStatusBar($api.dom('#topbar'));
 		var uname = $api.getStorage('uname');
 		if(uname){
-			$api.css($api.byId('loginbox1'),'display:none');
-			$api.css($api.byId('loginbox2'),'display:block');
 			$api.html($api.byId('uname'),uname)
 		}
 		
