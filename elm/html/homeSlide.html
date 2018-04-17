@@ -13,14 +13,14 @@
         /* 头部导航样式 */
 
         .header {position: relative;height: 50px;line-height: 50px;background-color: #3993cf;}
-        .header .left  {position: absolute;left: 0;height: 50px;}
-        .header .left  .logoleft {height: 20px;vertical-align: top; margin-top: 15px;width: 20px;margin-left: 15px; padding-right: 10px;}
+        .header .left  {position: absolute;left: 0;height: 50px;overflow: hidden;}
+        .header .left  .logoleft {height: 20px;vertical-align: top; margin-top: 15px; margin-left: -10px;}
         .header .left  .logo {height: 46px; vertical-align: top; margin-top: 2px; margin-left: -10px;}
         .header .left  .title {font-size: 20px; color: #fff; margin-left: -10px;padding-right: 10px;}
         
-        .header .center {position: absolute; left: 60px; width: 80px;}
+        .header .center {position: absolute; left: 40px;}
         .header .center span {color: #fff;}
-        .header .center img {width: 8px; bottom: 12px; position: absolute; right: 1px;}
+        .header .center img {width: 8px; bottom: 12px; position: absolute; right: -8px;}
 
         .header .right {position: absolute;right: 0;height: 50px;}
         .header .right img {height: 25px;padding: 10px;padding-top: 15px;}
@@ -85,7 +85,7 @@
     <div class="header" id="topbar">
         
         <div class="left" onclick="openSlide()">
-            <img src="../image/ic_back_btn.png" alt="" class="logoleft">
+            <img src="../image/icon_drawer_burger.png" alt="" class="logoleft">
         </div>
         <div class="center" onclick="openNewWin('searchlocation')">
             <span id="st">海河大道</span>

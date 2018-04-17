@@ -150,8 +150,6 @@
 		    	$api.setStorage('id',id);
 		    	getInfo(id);
 		    	
-		    	
-		    	
 		    }else{
 		    	api.toast({
 				    msg: '登录失败,账号或密码错误',
@@ -182,7 +180,7 @@
     
     
     function openUserCenter(){
-	    api.openWin ({
+	    /*api.openWin ({
 	        name: 'usercenter',
 	        url: './login.html',
 	        rect:{
@@ -193,7 +191,22 @@
 	        },
 	        bounces: false,
 	        delay:200
-	    });
+	    });*/
+	   
+	   api.openSlidLayout({
+            type:'left',
+            fixedPane:{
+                name: 'homeFixed',
+                url: 'homeFixed.html'
+            },
+            slidPane:{
+                name: 'homeSlide',
+                url: 'homeSlide.html'
+            }
+        }, function(ret) {
+            /* 暂时不需要做任何事. */
+
+        });
 	}
     
     
