@@ -85,27 +85,20 @@ function goback () {
 		}, function(ret, err) {
 			alert(JSON.stringify(ret))
 		    if (ret.status==true) {
-		        var lon=ret.lon;	//经度
-		        var lat=ret.lat;	//纬度
+		        var lon=ret.lon;
+		        var lat=ret.lat;
 		        
-//		        setTimeout("star("+bMap+","+lon+","+lat+")",2000)
-		        setTimeout(star(lon,lat),2000);
-		        
-		        /*bMap.getNameFromCoords({
+		        bMap.getNameFromCoords({
 				    lon: lon,
 				    lat: lat
 				}, function(ret, err) {
-					alert(JSON.stringify(ret));
+					alert(JSON.stringify(ret))
 				    if (ret.status) {
 				        
-				        $api.css($api.byId('local'),'display:block');
-				        $api.setStorage('local',ret.address);
-				        $api.setStorage('street',ret.streetName);
-				        $api.html($api.byId("local"),ret.address);
 				    }
-				});*/
+				});
 		    } else {
-		        alert('定位失败，请稍后重试');
+		        alert(err.code);
 		    }
 		})
 	}

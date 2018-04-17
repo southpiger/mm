@@ -90,7 +90,18 @@
 	
 	function logout(){
 		$api.clearStorage ();
-		openNewWin('homeSlide');
+		api.openWin ({
+	        name: 'homeSlide',
+	        url: './homeSlide.html',
+	        rect:{
+	            x:0,
+	            y:0,
+	            w:'auto',
+	            h:'auto'
+	        },
+	        bounces: false,
+	        delay:200
+	    });
 	}
 	
 	function goback () {
