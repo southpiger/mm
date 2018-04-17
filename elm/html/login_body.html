@@ -130,7 +130,7 @@
 <script type="text/javascript">
 	
 	apiready = function() {
-		$api.fixStatusBar( $api.dom('#topbar') );
+		$api.fixStatusBar( $api.dom('#topbar'));
         
     };
    
@@ -150,7 +150,7 @@
 		    	$api.setStorage('id',id);
 		    	getInfo(id);
 		    	
-		    	openUserCenter();
+		    	
 		    	
 		    }else{
 		    	api.toast({
@@ -174,6 +174,8 @@
 		},function(ret,err){
 		    if(ret){
 		    	$api.setStorage('uname',ret.username);
+		    	
+		    	openUserCenter();
 		    }
 		})
     }

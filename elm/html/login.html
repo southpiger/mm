@@ -76,9 +76,9 @@
 	
 	apiready = function(){
 		$api.fixStatusBar($api.dom('#topbar'));
-		var uname = $api.getStorage('uname');
-		if(uname){
-		$api.html($api.byId('uname'),uname)
+		var yname = $api.getStorage('uname');
+		if(yname){
+			$api.html($api.byId('uname'),yname);
 		}
 		
 	}
