@@ -160,7 +160,7 @@
         <img src="../image/cart.png" alt="">
         <span class="buyinfo" id="buyinfo"><span id="buynum">1</span>份 ￥<span id="totalcash">10</span></span>
         <span id="minbuy">￥0元起送</span>
-        <span id="buyit" tapmode="total-hover" onclick="openNewWin()">去结算</span>
+        <span id="buyit" tapmode="total-hover" onclick="openLog()">去结算</span>
     </div>
 
 </body>
@@ -273,6 +273,38 @@ function minuscash (index) {
 
     }
 }
+
+	function openLog(){
+		var uname = $api.getStorage('uname');
+		if(uname){
+			api.openWin ({
+				name: 'login',
+				url: './login.html',
+				rect:{
+					x:0,
+					y:0,
+					w:'auto',
+					h:'auto'
+				},
+				bounces: false,
+				delay:200
+			});
+		}else{
+			api.openWin ({
+				name: 'login_body',
+				url: './login_body.html',
+				rect:{
+					x:0,
+					y:0,
+					w:'auto',
+					h:'auto'
+				},
+				bounces: false,
+				delay:200
+			});
+		}
+	}
+
 
 function openNewWin() {
     api.openWin ({

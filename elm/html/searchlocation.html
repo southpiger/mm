@@ -76,14 +76,15 @@ function goback () {
     api.closeWin({name:'searchlocation'});
 }
 
-	function getGeo () {
+	function getGeo(){
 		var bMap = api.require('bMap');
 		bMap.getLocation({
 		    accuracy: '100m',
 		    autoStop: true,
 		    filter: 1
 		}, function(ret, err) {
-		    if (ret.status) {
+			alert(JSON.stringify(ret))
+		    if (ret.status==true) {
 		        var lon=ret.lon;	//经度
 		        var lat=ret.lat;	//纬度
 		        
@@ -100,8 +101,7 @@ function goback () {
 		    lon: lon,
 		    lat: lat
 		}, function(ret, err) {
-			alert(JSON.stringify(ret))
-		    if (ret.status=='true') {
+		    if (ret.status==true) {
 //		        alert(JSON.stringify(ret));
 		        $api.css($api.byId('local'),'display:block');
 		        $api.setStorage('local',ret.address);
