@@ -88,7 +88,22 @@ function goback () {
 		        var lon=ret.lon;	//经度
 		        var lat=ret.lat;	//纬度
 		        
-		        setTimeout("star("+lon+","+lat+")",5000);
+//		        setTimeout("star("+lon+","+lat+")",5000);
+		        
+		        bMap.getNameFromCoords({
+				    lon: lon,
+				    lat: lat
+				}, function(ret, err) {
+					alert(JSON.stringify(ret));
+				    if (ret.status) {
+				        
+				        $api.css($api.byId('local'),'display:block');
+				        $api.setStorage('local',ret.address);
+				        $api.setStorage('street',ret.streetName);
+				        $api.html($api.byId("local"),ret.address);
+		//		        $api.attr($api.byId('local'),'ac',ret.streetName);
+				    }
+				});
 		    } else {
 		        alert('定位失败，请稍后重试');
 		    }
