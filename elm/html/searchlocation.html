@@ -96,13 +96,15 @@ function goback () {
 	}
 	
 	function star(lon,lat){
+		alert(lon+','+lat);
 		var map = api.require('bMap');
 		map.getNameFromCoords({
 		    lon: lon,
 		    lat: lat
 		}, function(ret, err) {
+			alert(JSON.stringify(ret));
 		    if (ret.status) {
-		        alert(JSON.stringify(ret));
+		        
 		        $api.css($api.byId('local'),'display:block');
 		        $api.setStorage('local',ret.address);
 		        $api.setStorage('street',ret.streetName);
