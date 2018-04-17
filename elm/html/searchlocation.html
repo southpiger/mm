@@ -87,7 +87,7 @@ function goback () {
 		        var lon=ret.lon;	//经度
 		        var lat=ret.lat;	//纬度
 		        
-		        star(lon,lat);
+		        setTimeout("star(lon,lat)",500);
 		    } else {
 		        alert(err.code);
 		    }

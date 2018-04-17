@@ -80,20 +80,17 @@
 <script src="../script/APICloud-rest-SHA1.js"></script>
 <script type="text/javascript">
 	
-	window.onload = function(){
+	apiready = function(){
+		
 		var uname = $api.getStorage('uname');
 		if(uname){
 			$api.fixStatusBar($api.dom('#topbar'));
-			$api.css($api.dom('#loginbox1'),'display:none');
-			$api.css($api.dom('#loginbox2'),'display:block');
+			$api.css($api.byId('loginbox1'),'display:none');
+			$api.css($api.byId('loginbox2'),'display:block');
 			$api.html($api.byId('uname'),uname)
 		}else{
 			openNewWin ('login_body');
 		}
-	}
-	apiready = function(){
-		
-		
 		
 	}
 	
