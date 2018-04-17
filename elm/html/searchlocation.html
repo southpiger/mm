@@ -72,9 +72,9 @@
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 
-function goback () {
-    api.closeWin({name:'searchlocation'});
-}
+	apiready = function(){
+		$api.fixStatusBar( $api.dom('#topbar') );
+	}
 
 	function getGeo(){
 		var bMap = api.require('bMap');
@@ -88,11 +88,15 @@ function goback () {
 		        var lon=ret.lon;
 		        var lat=ret.lat;
 		        
-		        bMap.getNameFromCoords({
+		        star(ret);
+		        
+		        
+		        
+		        /*bMap.getNameFromCoords({
 				    lon: lon,
 				    lat: lat
 				}, function(ret, err) {
-					alert(lon+,+lat)
+					alert(lon+','+lat)
 					alert(JSON.stringify(ret))
 				    if (ret.status) {
 				        $api.css($api.byId('local'),'display:block');
@@ -100,19 +104,18 @@ function goback () {
 				        $api.setStorage('street',ret.streetName);
 				        $api.html($api.byId("local"),ret.address);
 				    }
-				});
+				});*/
 		    } else {
 		        alert(err.code);
 		    }
 		})
 	}
 	
-	function star(lon,lat){
-		alert(lon+','+lat);
+	function star(data){
 		var amap = api.require('bMap');
 		amap.getNameFromCoords({
-		    lon: lon,
-		    lat: lat
+		    lon: data.lon,
+		    lat: data.lat
 		}, function(ret, err) {
 			alert(JSON.stringify(ret));
 		    if (ret.status) {
@@ -121,19 +124,15 @@ function goback () {
 		        $api.setStorage('local',ret.address);
 		        $api.setStorage('street',ret.streetName);
 		        $api.html($api.byId("local"),ret.address);
-//		        $api.attr($api.byId('local'),'ac',ret.streetName);
 		    }
 		});
 	}
 	
 	function again(){
-//		var st = $api.attr($api.byId('local'),'ac');
+		
 		api.openWin({
 		    name: 'homeSlide',
 		    url: './homeSlide.html',
-		    /*pageParam: {
-		        street: st
-		    },*/
 		    rect:{
 	            x:0,
 	            y:0,
@@ -153,8 +152,9 @@ function goback () {
 	    }
 	    input.value = '';
 	}
-	apiready = function(){
-		$api.fixStatusBar( $api.dom('#topbar') );
+	function goback () {
+	    api.closeWin({name:'searchlocation'});
 	}
+
 </script>
 </html>
