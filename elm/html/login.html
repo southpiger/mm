@@ -59,7 +59,7 @@
         <div class="loginbox" id="loginbox2">
             <div class="avatar"><img src="../image/user_center_default_avatar.png" alt=""></div>
             <div class="shelf" tapmode="" >
-                <div class="shelf01" id="uname"></div>
+                <div class="shelf01" id="uname">用户名</div>
                 <div class="shelf02">欢迎你</div>
             </div>
         </div>
@@ -77,9 +77,9 @@
 	apiready = function(){
 		$api.fixStatusBar($api.dom('#topbar'));
 		var uname = $api.getStorage('uname');
-//		if(uname){
+		if(uname){
 		$api.html($api.byId('uname'),uname)
-//		}
+		}
 		
 	}
 	
