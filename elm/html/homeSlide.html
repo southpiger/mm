@@ -102,17 +102,14 @@
 <script type="text/javascript">
 
     apiready = function(){
-//		var parms = api.pageParam;
-//		var st = parms.st;
+
 		var st = $api.getStorage('street');
 		if(st){
 			$api.html($api.byId('st'),st);
 		}
 		
-		$api.fixStatusBar( $api.dom('#topbar') );
-        var headerPos = $api.offset( $api.dom('#topbar') );
-		
-		
+		$api.fixStatusBar($api.dom('#topbar'));
+        var headerPos = $api.offset($api.dom('#topbar'));
 		
 		
         api.openFrame ({
