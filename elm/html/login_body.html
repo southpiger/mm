@@ -145,10 +145,11 @@
 		    "password":pwd
 		},function(ret,err){
 		    if(ret.userId){
-		    	alert(JSON.stringify(ret))
+		    	
 		    	var id = ret.userId;
 		    	$api.setStorage('id',id);
 		    	getInfo(id);
+		    	
 		    	openUserCenter();
 		    	
 		    }else{
@@ -165,15 +166,13 @@
     
     
     function getInfo(id){
-    	alert(id);
-    	alert(typeof(id));
+    	
     	var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
 		var User= client.Factory("user");
 		User.get({
 		    "_id":id
 		},function(ret,err){
 		    if(ret){
-		    	alert(JSON.stringify(ret));
 		    	$api.setStorage('uname',ret.username);
 		    }
 		})

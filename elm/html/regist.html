@@ -216,7 +216,7 @@
 			    "username": uname
 			},function(ret,err){
 				if(ret.id){
-					alert(JSON.stringify(ret));
+					
 					$api.setStorage('id',ret.id);
 					api.toast({
 					    msg: '注册成功,2秒后前往登录页面',
