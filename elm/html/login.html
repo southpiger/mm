@@ -99,8 +99,19 @@
 	        url: './login_body.html'
 	    });*/
 	    
-	    api.openSlidPane ({
-            type: 'left'
+	    api.openSlidLayout({
+            type:'left',
+            fixedPane:{
+                name: 'homeFixed',
+                url: './html/homeFixed.html'
+            },
+            slidPane:{
+                name: 'homeSlide',
+                url: './html/homeSlide.html'
+            }
+        }, function(ret) {
+            /* 暂时不需要做任何事. */
+
         });
 	}
 	
