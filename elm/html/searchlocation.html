@@ -130,18 +130,20 @@
 	
 	function again(){
 		
-		api.openWin({
-		    name: 'homeSlide01',
-		    url: '../index.html',
-		    rect:{
-	            x:0,
-	            y:0,
-	            w:'auto',
-	            h:'auto'
-	        },
-		    bounces: false,
-		    delay:200
-		});
+		api.openSlidLayout({
+            type:'left',
+            fixedPane:{
+                name: 'homeFixed',
+                url: './html/homeFixed.html'
+            },
+            slidPane:{
+                name: 'homeSlide',
+                url: './html/homeSlide.html'
+            }
+        }, function(ret) {
+            /* 暂时不需要做任何事. */
+
+        });
 	}
 	
 	var input = {};
