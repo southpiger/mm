@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>订单支付</title>
+		<link rel="stylesheet" href="../css/api.css" />
+		<style type="text/css">
+			body{
+				min-width: 320px;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			#topbar{
+				position: relative;
+				height: 50px;
+				line-height: 50px;
+				background-color: #3993cf;
+			}
+			#topbar .left{
+				position: absolute;
+				left: 0;
+				height: 50px;
+				overflow: hidden;
+			}
+			#topbar .logoleft{
+				height: 20px;
+				vertical-align: top;
+				margin-top: 15px; 
+				width: 20px;
+				margin-left: 15px;
+				padding-right: 10px;
+			}
+			#topbar .title{
+				font-size: 20px;
+				color: #fff;
+				margin-left: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="topbar" >
+		    <div class="left" onclick="goback()">
+	            <img src="../image/ic_back_btn.png" alt="" class="logoleft">
+	        </div>
+	    	<span class="title">订单支付</span>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script>
+		apiready = function () {
+			$api.fixStatusBar($api.dom('#topbar'));
+		    var header = $api.offset($api.dom('#topbar'));
+			api.openFrame({
+			    name: 'goPay_body',
+			    url: './goPay_body.html',
+			    rect:{
+		            x:0,
+			        y:header.h,
+			        w:'auto',
+			        h:'auto'
+				}
+			});
+		};
+		
+		
+		function goback(){
+		    api.closeWin({name:'goPay'});
+		}
+	</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>订单支付</title>
+		<link rel="stylesheet" href="../css/api.css" />
+		<style type="text/css">
+			html,body{
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				min-width: 320px;
+				height: 100%;
+				background-color: rgba(0,0,0,0.3);
+			}
+			em,i{
+				font-style: normal;
+			}
+			#main{
+				width: 240px;
+				height: 240px;
+				padding: 12px 8px 0 8px;
+				box-sizing: border-box;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-top: -120px;
+				margin-left: -120px;
+				background-color: #acacac;
+				text-align: center;
+				border-radius: 15px;
+			}
+			.pic{
+				width: 100px;
+				height: 100px;
+				background-color: #66ae00;
+				border-radius: 100px;
+				text-align: center;
+				line-height: 100px;
+				position: relative;
+				margin: 0 auto;
+				margin-top: 36px;
+			}
+			.pic img{
+				width: 80px;
+				height: 80px;
+				position: absolute;
+				top: 50%;
+				margin-top: -40px;
+				left: 50%;
+				margin-left: -40px;
+			}
+			#main span{
+				margin-top: 18px;
+				font-size: 24px;
+				color: #535353;
+			}
+		</style>
+	</head>
+	<body id="body" >
+		<div id="main">
+			<div class="contentbox">
+				<div class="pic"><img src="../image/payok.png" alt="" /></div>
+				<span>支付成功</span>
+			</div>
+		</div>
+	
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script>
+		apiready = function(){
+			setTimeout("openhome()",1500);
+		}
+		
+		function openhome(){
+			api.openSlidLayout({
+	            type:'left',
+	            fixedPane:{
+	                name: 'homeFixed',
+	                url: 'homeFixed.html'
+	            },
+	            slidPane:{
+	                name: 'homeSlide',
+	                url: 'homeSlide.html'
+	            }
+	        },function(ret) {
+	
+	        });
+		}
+	</script>
+	</body>
+</html>
