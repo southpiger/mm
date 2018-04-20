@@ -69,26 +69,5 @@
 		</div>
 	
 	<script type="text/javascript" src="../script/api.js"></script>
-	<script>
-		apiready = function(){
-			setTimeout("openhome()",1500);
-		}
-		
-		function openhome(){
-			api.openSlidLayout({
-	            type:'left',
-	            fixedPane:{
-	                name: 'homeFixed',
-	                url: 'homeFixed.html'
-	            },
-	            slidPane:{
-	                name: 'homeSlide',
-	                url: 'homeSlide.html'
-	            }
-	        },function(ret) {
-	
-	        });
-		}
-	</script>
 	</body>
 </html>

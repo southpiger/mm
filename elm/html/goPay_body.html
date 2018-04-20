@@ -253,18 +253,44 @@
 		}
 		
 		function openok(){
-			api.openWin ({
-		        name: 'payok',
-		        url: './payok.html',
-		        rect:{
-		            x:0,
-		            y:0,
-		            w:'auto',
-		            h:'auto'
-		        },
-		        bounces: false,
-		        delay:200
-		    });
+			api.openFrame({
+			    name: 'payok',
+			    url: './payok.html',
+			    rect: {
+			        x: 0,
+			        y: 0,
+			        w: 'auto',
+			        h: 'auto'
+			    },
+			    bgColor:'rgba(0,0,0,0.1)'
+			});
+			
+			setTimeout("close()",1500);
+			
+		}
+		
+		function close(){
+			api.closeFrame({
+			    name: 'payok'
+			});
+			setTimeout("openhome()",800);
+		}
+		
+		function openhome(){
+			
+			api.openSlidLayout({
+	            type:'left',
+	            fixedPane:{
+	                name: 'homeFixed',
+	                url: 'homeFixed.html'
+	            },
+	            slidPane:{
+	                name: 'homeSlide',
+	                url: 'homeSlide.html'
+	            }
+	        },function(ret) {
+	
+	        });
 		}
 	</script>
 	</body>
