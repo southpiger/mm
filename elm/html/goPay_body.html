@@ -252,6 +252,7 @@
 			
 		}
 		
+		//点击确认，打开支付成功弹窗，延迟1500ms关闭，回到首页
 		function openok(){
 			api.openFrame({
 			    name: 'payok',
@@ -264,9 +265,7 @@
 			    },
 			    bgColor:'rgba(0,0,0,0.1)'
 			});
-			
 			setTimeout("close()",1500);
-			
 		}
 		
 		function close(){

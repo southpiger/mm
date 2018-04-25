@@ -76,6 +76,7 @@
 		$api.fixStatusBar( $api.dom('#topbar') );
 	}
 
+	//获取经纬度
 	function getGeo(){
 		var bMap = api.require('bMap');
 		bMap.getLocation({
@@ -83,26 +84,23 @@
 		    autoStop: true,
 		    filter: 1
 		}, function(ret, err) {
-//			alert(JSON.stringify(ret))
 		    if (ret.status==true) {
 		        var lon=ret.lon;
 		        var lat=ret.lat;
-		        
 		        star(ret);
-		        
 		    } else {
 		        alert(err.code);
 		    }
 		})
 	}
 	
+	//根据经纬度确定位置
 	function star(data){
 		var amap = api.require('bMap');
 		amap.getNameFromCoords({
 		    lon: data.lon,
 		    lat: data.lat
 		}, function(ret, err) {
-//			alert(JSON.stringify(ret));
 		    if (ret.status) {
 		        
 		        $api.css($api.byId('local'),'display:block');

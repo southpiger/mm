@@ -169,6 +169,8 @@
 var totalcash = 0;
 var buynum = 0;
 
+
+//加
 function buyfood (index) {
     var buyinfodom = document.getElementById('buyinfo');
     var buynumdom = document.getElementById('buynum');
@@ -220,6 +222,7 @@ function buyfood (index) {
     }
 }
 
+//减
 function minuscash (index) {
     var buyinfodom = document.getElementById('buyinfo');
     var buynumdom = document.getElementById('buynum');
@@ -274,6 +277,7 @@ function minuscash (index) {
     }
 }
 
+//判断如果存在登录信息，就去支付页面，否则进入登录页面
 	function openLog(){
 		var uname = $api.getStorage('uname');
 		if(uname){
