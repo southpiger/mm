@@ -5,8 +5,6 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>搜索</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
-    <link rel="stylesheet" type="text/css" href="../css/idangerous.swiper.css">
 
     <style>
         html,body{height:100%;background-color: #eee;}
@@ -37,36 +35,183 @@
         /* 悬浮样式 */
         .itemhover {background-color: #2283BE;}
         #topbar .headerhover {background-color: rgba(54, 168, 220, 0.6) !important;}
+        
+        /* 条目总体样式 */
+        .item {display: table; height: 70px; width: 100%;}
+        .item .itemlogo , .item .itemshelf {display: table-cell; vertical-align: middle;}
+
+        .item .itemlogo {width: 70px;}
+        .item .itemlogo img  {margin-left: 10px;width: 40px;}
+        .item .itemshelf .shelfinfo01 {font-size: 20px;color: #AFAFAF;}
+
+        /* 条目特例 */
+        .shelf2 .userlogo img {width: 50px;}
+        .favorable .itemshelf .shelfinfo01 {font-size: 16px;color: #F97B02;}
+        .favorable .itemshelf .shelfinfo02 {font-size: 12px;color: #666;margin-top: 5px;}
+        .nearby .itemshelf .shelfinfo01 {font-size: 16px;color: #4CAD35;}
+        .nearby .itemshelf .shelfinfo02 {font-size: 12px;color: #666;margin-top: 5px;}
+        
+        /* 第三部分 */
+       
+        .section3 .item {background-color: #fff;position: relative;border-bottom: 1px solid #d3d3d3;}
+        .section3 .item .itemlogo {position: absolute; top: 10px;}
+        .section3 .itemshelf {margin-left: 80px;display: block;/* 不再显示为table-cell */}
+        .section3 .item .userlogo img {width: 60px;height:60px;padding: 2px; border: 1px solid #e7e7e7;border-radius: 2px;}
+        .section3 .itemshelf .shelfinfo01 {color: #000;font-size: 16px;line-height: 18px;margin-top: 10px;}
+        .section3 .itemshelf .ordering{color: #fff;font-size: 12px;background-color: #5bb06c;padding: 2px 4px;display: inline-block;}
+        .section3 .itemshelf .shelfinfo03 {color: #999;font-size: 12px;margin-right: 10px;padding-bottom: 10px;}
+        .section3 .style2 .itemshelf .shelfinfo03 {color: #999;font-size: 12px;margin-right: 10px;border-bottom: 0;padding: 10px 0;}
+        .section3 .itemshelf .staring {color: #999;font-size: 12px;/*background-color: #fff;*/line-height: 14px;margin-top: 5px;}
+        .section3 .itemshelf .staring img {height: 12px;}
+
+        .section3 .itemshelf .shelfinfo04 {color: #999;font-size: 12px;padding: 10px 0;border-top: 1px dotted #666;}
+        .section3 .itemshelf .shelfinfo05 {color: #999;font-size: 12px;padding: 10px 0 0 0;}
+       
+
+        /* 标题栏小图标 */
+        .section3 .itemshelf .shelfinfo01 .pei {color: #fff;font-size: 12px;background-color: #82782f;margin-left: 5px;padding: 1px;border-radius: 3px;}
+        .section3 .itemshelf .shelfinfo01 .ticket {color: #fff;font-size: 12px;background-color: #3585b7;margin-left: 5px;padding: 2px;border-radius: 3px;}
+        .section3 .itemshelf .shelfinfo01 .fu {color: #fff;font-size: 12px;background-color: #e5322d;margin-left: 5px;padding: 2px;border-radius: 3px;}
+        .section3 .itemshelf .shelfinfo01 .compensate {color: #fff;font-size: 12px;background-color: #2768ba;margin-left: 5px;padding: 2px;border-radius: 3px;}
+        .section3 .itemshelf .shelfinfo01 .new {color: #fff;font-size: 12px;background-color: #e5322d;margin-left: 5px;padding: 2px;border-radius: 3px;}
+        .section3 .itemshelf .shelfinfo04 .jian {color: #fff;font-size: 12px;background-color: #cd22e2;padding: 3px 4px;border-radius: 3px;margin-right: 5px; line-height: 1em;}
+        .section3 .itemshelf .shelfinfo05 .quatity {color: #fff;font-size: 12px;background-color: #dc0414;padding: 1px;border-radius: 3px;margin-right: 5px;}
+
+        /* 悬浮样式 */
+        .itemhover {background-color: #eee !important;}
+        .headerhover {background-color: #36A8DC;}
+		.swipe { overflow: hidden; visibility: hidden; position: relative; background: #fff; padding-bottom: 10px;}
+        .swipe-wrap { overflow: hidden; position: relative; }
+        .swipe-wrap .swipe-box { float: left; width: 100%; position: relative; }
+        .swipe-wrap .swipe-box img {width: 100%;}
+		
+		
+		.star{
+			font-size: 14px;
+			line-height: 32px;
+			color: #f60;
+		}
+		.star em{
+			color: #999;
+			font-size: 12px;
+		}
+		.section3{
+			margin-bottom: 20px;
+		}
     </style>
 </head>
-<body>
-    <div class="header" id="topbar">
-        <div class="left" tapmode onclick="goback()">
-            <img src="../image/ic_back_btn.png" alt="" class="logoleft">
-        </div>
-
-        <div class="searchBox"><input type="text"  class="emptyinput" placeholder="请输入餐厅名"><img src="../image/abc_ic_clear_search_api_holo_light.png" alt="" tapmode="" onclick="emptyinput()"></div>
-        <div class="btn" tapmode="headerhover" onclick="">确定</div>
+<body >
+    <div style="position: relative;" id="topbar">
+    	<div class="header" >
+	        <div class="left" tapmode onclick="goback()">
+	            <img src="../image/ic_back_btn.png" alt="" class="logoleft">
+	        </div>
+	
+	        <div class="searchBox"><input type="text"  class="emptyinput" placeholder="请输入餐厅名"><img src="../image/abc_ic_clear_search_api_holo_light.png" alt="" tapmode="" onclick="clean('.emptyinput')"></div>
+	        <div class="btn" tapmode="headerhover" onclick="getSearch()">确定</div>
+	    </div>
     </div>
-
-    
+   
+   	<div class="section3" id="sellerList" style="margin-top: 60px;">
+   		
+   	</div>
 </body>
+
+<script type="text/html" id="seller_mb">
+	<%for(var i=0;i<msg.length;i++){%>
+	    <div class="item style1" tapmode="itemhover" onclick="openNewWin('shopdetail')">
+            <div class="itemlogo userlogo"><img src="<%=msg[i].s_logo%>" alt=""></div>
+            <div class="itemshelf">
+                <div class="shelfinfo01"><%=msg[i].s_name%></div>
+                <div class="star">
+                	<%if(msg[i].s_star==1){%>
+                		<span>★</span>
+                	<%}else if(msg[i].s_star==2){%>
+                		<span>★★</span>
+                	<%}else if(msg[i].s_star==3){%>
+                		<span>★★★</span>
+                	<%}else if(msg[i].s_star==4){%>
+                		<span>★★★★</span>
+                	<%}else if(msg[i].s_star==5){%>
+                		<span>★★★★★★</span>
+                	<%}%>
+                	<em>( <%=msg[i].s_starNum%> )</em>
+                </div>
+                <div class="shelfinfo03">月售<%=msg[i].s_sales%>单&nbsp;/&nbsp;<%=msg[i].offer_price%>元起送 &nbsp;/&nbsp;<%=msg[i].Dtime%>分钟</div>
+                <%if(msg[i].discount == '' || msg[i].discount == 'null' || msg[i].discount == undefined){%>
+                	
+                <%}else{%>
+                	<div class="shelfinfo04"><span class="jian">减</span><%=msg[i].discount%></div>
+                <%}%>
+            </div>
+        </div>
+    <%}%>
+</script>
+
 <script type="text/javascript" src="../script/api.js"></script>
+<script src="../script/template-native.js"></script>
+<script src="../script/APICloud-rest-SHA1.js"></script>
 <script type="text/javascript">
 
-var input = {};
-function emptyinput() {
-    if ( input.empty === undefined) {
-        input = document.getElementsByClassName('emptyinput')[0];
-        input.empty = 'false';
+	apiready = function(){
+		$api.fixStatusBar( $api.dom('#topbar') );	
+	}
+
+	
+	function getSearch(){
+		var val = $api.val($api.dom(".emptyinput"));
+		if(val==''){
+			return;
+		}
+		
+		var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
+		var Seller= client.Factory("seller");
+		Seller.query({
+		    "filter": {
+		    	"where": {
+		      		"s_name": {
+		        		"like": val
+		      		}
+		    	},
+		    	"skip": 0,
+		    	"limit": 20
+		  	}
+		},function(ret,err){
+			if(ret){
+				if(ret.length==0){
+					alert('没有搜索到相关商家');
+					return;
+				}
+				var data = {msg:ret};
+				var html = template('seller_mb',data);
+				document.querySelector("#sellerList").innerHTML = html;
+				
+		    }
+		})
+	}
+	
+	function openNewWin (type) {
+        api.openWin ({
+            name: type,
+            url: './'+type+'.html',
+            rect:{
+                x:0,
+                y:0,
+                w:'auto',
+                h:'auto'
+            },
+            bounces: false,
+            delay:200
+        });
     }
-    input.value = '';
-}
-function goback () {
-    api.closeWin({name:'search'});
-}
-apiready = function(){
-	$api.fixStatusBar( $api.dom('#topbar') );
-}
+	
+	function clean(self){
+		$api.val($api.dom(self),'');
+	}
+	
+	function goback () {
+	    api.closeWin({name:'search'});
+	}
+
 </script>
 </html>
