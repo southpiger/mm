@@ -5,10 +5,6 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>个人中心</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
-    <link rel="stylesheet" type="text/css" href="../css/idangerous.swiper.css">
-
-
     <style>
         html,body{height:100%;background-color: #eee;}
         .h10 {height: 10px;}
@@ -19,7 +15,6 @@
         .header .left  .logoleft {height: 20px;vertical-align: top; margin-top: 15px;width: 20px;margin-left: 15px;padding-right: 10px;}
         .header .left  .logo {height: 46px; vertical-align: top; margin-top: 2px; margin-left: -10px;}
         .header .left  .title {font-size: 20px; color: #fff; margin-left: -10px;padding-right: 10px;}
-
 
         .header .right {position: absolute;right: 0;height: 50px;}
         .header .right img {height: 20px;padding: 15px;}
@@ -33,7 +28,6 @@
         .loginbox .shelf {margin-left: 100px;}
         .loginbox .shelf .shelf01 {padding-top: 5px;}
         .loginbox .shelf .shelf02 {margin-top: 5px;color: #0088cc;font-size: 12px;}
-        
 
         /* 用户item */
         .useritem {background-color: #fff;margin: 10px;border: 1px solid #d2d2d2;}
@@ -80,25 +74,18 @@
 	
 	apiready = function(){
 		$api.fixStatusBar($api.dom('#topbar'));
-		var yname = $api.getStorage('uname');
-		if(yname){
-			$api.html($api.byId('uname'),yname);
+		var uid = $api.getStorage('id');
+		if(uid){
+			getInfo(uid)
 		}
-		
 	}
 	
-	
 	function logout(){
-		$api.clearStorage ();
+		$api.clearStorage();
 		openhome();
 	}
 	
 	function openhome(){
-	    /*api.openWin({
-	        name: 'slide',
-	        url: './login_body.html'
-	    });*/
-	    
 	    api.openSlidLayout({
             type:'left',
             fixedPane:{
@@ -113,6 +100,19 @@
 
         });
 	}
+	
+	function getInfo(id){
+    	
+    	var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
+		var User= client.Factory("user");
+		User.get({
+		    "_id":id
+		},function(ret,err){
+		    if(ret){
+				$api.html($api.byId('uname'),ret.username);
+		    }
+		})
+    }
 	
 	function goback () {
 	    api.closeWin({name:'login'});

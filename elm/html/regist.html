@@ -174,7 +174,6 @@
 		        </div>
 			</div>
 
-
 		    <div style="width: 100%;height: 15px;background: #f2f3f5;"></div>
 				<div class="con">
 					<div class="item">
@@ -189,7 +188,6 @@
 					
 				</div>
 				<p class="gologin" onclick="openLogin()"><a href="javascript:;">已有账号？去<em>登录</em></a></p>
-			    
 			    <div class="btn" id="loginButton" onclick="regist()">注册</div>
 			</div>
 	</body>
@@ -203,6 +201,7 @@
 			
 		}
 		function regist(){
+			api.showProgress();
 			var pwd = $api.val($api.byId("phone_pass"));
 			var uname = $api.val($api.byId("uname"));
 			var client = new Resource("A6078818080214", "E3A3C5EE-EDC3-11F8-7C18-C9AC0439ED2B");
@@ -213,7 +212,7 @@
 			    "username": uname
 			},function(ret,err){
 				if(ret.id){
-					
+					api.hideProgress();
 					$api.setStorage('id',ret.id);
 					api.toast({
 					    msg: '注册成功,2秒后前往登录页面',
@@ -221,7 +220,10 @@
 					    location: 'middle'
 					});
 					setTimeout("openLogin()",2000);
+					$api.val($api.byId("phone_pass"),'');
+					$api.val($api.byId("uname"),'');
 				}else{
+					api.hideProgress();
 					api.toast({
 					    msg: '注册失败,请核对信息后再次注册',
 					    duration: 3000,

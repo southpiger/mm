@@ -5,8 +5,6 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>商家详情</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
-
     <style>
         html,body{height:100%;background-color: #eee;}
         .h10 {height: 10px;}
@@ -20,7 +18,6 @@
 
         .header .right {position: absolute;right: 0;height: 50px;}
         .header .right img {height: 30px;padding: 10px;}  
-
 
         /* framegroup 头部样式 */
         .navbar {display: -webkit-box; -webkit-box-orient: horizontal; position: relative; height: 50px; box-sizing: border-box; background: #3F4147; border-bottom: 1px solid #e0e0e0; }
@@ -49,12 +46,8 @@
     <nav class="navbar">
         <a id="navbar-item-recommend" class="navbar-item navbar-item-active" tapmode="navbar-item-hov" onclick="setFrameGroupIndex(0);">菜单分类<img src="../image/pager_tab_menu_indicator.png" alt=""></a><div class="vdvidider"></div>
         <a id="navbar-item-rank" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex(1);">餐厅介绍</a>
-       <!--  <a id="navbar-item-favorite" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex(2);">口味最佳</a>
-        <a id="navbar-item-more" class="navbar-item" tapmode="navbar-item-hov" onclick="setFrameGroupIndex(2);">更多排行</a> -->
-        <mark id="navmark"><!-- 可以自己添加尖角下标，同时把navmark的高度设置为 0 <img src="../../image/quick_action_arrow_up.png"> --></mark>
+        <mark id="navmark"></mark>
     </nav>
-
-
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
@@ -156,8 +149,6 @@
         }, function (ret) {
             setFrameGroupStatus(ret.index);
         });
-
-        
     };
 </script>
 </html>

@@ -5,13 +5,11 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>首页</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
     <style>
         html,body{height:100%;background-color: #eee;}
         .h10 {height: 10px;}
 
         /* 头部导航样式 */
-
         .header {position: relative;height: 50px;line-height: 50px;background-color: #3993cf;}
         .header .left  {position: absolute;left: 0;height: 50px;overflow: hidden;}
         .header .left  .logoleft {height: 20px;vertical-align: top; margin-top: 15px; margin-left: -10px;}
@@ -26,7 +24,6 @@
         .header .right img {height: 25px;padding: 10px;padding-top: 15px;}
 
         .swiper-slide img {width: 100%;}
-
 
         /* 两列样式 */
         .row {display: -webkit-box;display: -webkit-flex;}
@@ -64,7 +61,6 @@
 
         .section3 .itemshelf .shelfinfo04 {color: #999;font-size: 12px;padding: 10px 0;}
         .section3 .itemshelf .shelfinfo05 {color: #999;font-size: 12px;padding: 10px 0 0 0;}
-       
 
         /* 标题栏小图标 */
         .section3 .itemshelf .shelfinfo01 .pei {color: #fff;font-size: 12px;background-color: #82782f;margin-left: 5px;padding: 1px;border-radius: 3px;}
@@ -78,12 +74,10 @@
         /* 悬浮样式 */
         .itemhover {background-color: #eee !important;}
         .headerhover {background-color: #36A8DC;}
-
     </style>
 </head>
 <body>
     <div class="header" id="topbar">
-        
         <div class="left" onclick="openSlide()">
             <img src="../image/icon_drawer_burger.png" alt="" class="logoleft">
         </div>
@@ -93,16 +87,11 @@
         </div>
         <div class="right" tapmode="headerhover" onclick="openNewWin('search')"><img src="../image/icon_search.png" alt=""></div>
     </div>
-
-
-
 </body>
 <script src="../script/api.js"></script>
 <script src="../script/zepto.min.js"></script>
 <script type="text/javascript">
-
     apiready = function(){
-
 		var st = $api.getStorage('street');
 		if(st){
 			$api.html($api.byId('st'),st);
@@ -110,8 +99,7 @@
 		
 		$api.fixStatusBar($api.dom('#topbar'));
         var headerPos = $api.offset($api.dom('#topbar'));
-		
-		
+
         api.openFrame ({
             name: 'slide_body',
             url: './slide_body.html',

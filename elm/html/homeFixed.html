@@ -5,7 +5,6 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width"/>
     <title>个人中心</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
 	<style>
 		html {height: 100%;}
 		body {background-color: #2F3036;height: 100%;}
@@ -30,7 +29,6 @@
 	</style>
 </head>
 <body>
-    
 	<div class="item login" tapmode="itemhover" onclick="openLog()" id="topbar">
 		<div class="itemlogo userlogo"><img src="../image/m_drawer_icon_default_avt.png" alt=""></div>
 		<div class="itemshelf">
@@ -71,8 +69,6 @@
 		</div>
 	</div>
 
-	
-
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
@@ -81,8 +77,8 @@
 	}
 	
 	function openLog(){
-		var uname = $api.getStorage('uname');
-		if(uname){
+		var uid = $api.getStorage('id');
+		if(uid){
 			api.openWin ({
 				name: 'login',
 				url: './login.html',
@@ -111,7 +107,6 @@
 		}
 	}
 	
-	
     function openNewWin(type){
 		api.openWin ({
 			name: type,
@@ -130,6 +125,5 @@
     apiready = function(){
         $api.fixStatusBar( $api.dom('#topbar') );
     }
-
 </script>
 </html>

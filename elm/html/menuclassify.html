@@ -14,7 +14,6 @@
         /* section 1 */
         .section01 {height: 30px;line-height: 30px;text-align: center;color: #fff;background-color: #62a8d6;}
 
-
         /**/
         .item {display: table; height: 70px; width: 100%;}
         .item .itemlogo , .item .itemshelf {display: table-cell; vertical-align: middle;float: left;}
@@ -68,11 +67,10 @@
 
     <div class="item section02" style="height: 38px;">
         <div class="itemshelf">
-            <!--<div class="shelfinfo01">快用微信拼单</div>-->
             <div class="shelfinfo03">快来和你的小伙伴一起订餐吧</div>
         </div>
         <div class="buybtn">
-            <!--<p><img src="../image/weixin_iner_icon.png" alt="" class="weixin">微信拼单</p>-->
+            
         </div>
     </div>
 
@@ -94,8 +92,6 @@
             
         </div>
     </div>
-
-
 
     <div class="darktitle">商务套餐</div>
     <div class="item style2">
@@ -124,8 +120,6 @@
             </span>
         </div>
     </div>
-
-
 
     <div class="darktitle">精品商务套餐</div>
     <div class="item style2">
@@ -162,13 +156,11 @@
         <span id="minbuy">￥0元起送</span>
         <span id="buyit" tapmode="total-hover" onclick="openLog()">去结算</span>
     </div>
-
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 var totalcash = 0;
 var buynum = 0;
-
 
 //加
 function buyfood (index) {
@@ -279,8 +271,8 @@ function minuscash (index) {
 
 //判断如果存在登录信息，就去支付页面，否则进入登录页面
 	function openLog(){
-		var uname = $api.getStorage('uname');
-		if(uname){
+		var uid = $api.getStorage('id');
+		if(uid){
 			api.openWin ({
 				name: 'goPay',
 				url: './goPay.html',
@@ -308,7 +300,6 @@ function minuscash (index) {
 			});
 		}
 	}
-
 
 function openNewWin() {
     api.openWin ({
